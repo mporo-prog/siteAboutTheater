@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     AllBlobes()
-    
+
     window.addEventListener("resize", () => {
         AllBlobes()
     })

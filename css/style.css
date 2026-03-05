@@ -81,6 +81,37 @@ h2{
     background-color: #D17620;
     position: relative;
 }
+.frames-painting-strings{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    gap: 2vw;
+    padding: 0 2vw 0 2vw;
+}
+.frames{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.img-frame{
+    width: 23vw;
+    height: auto;
+}
+.img-painting{
+    width: 20vw;
+    height: auto;
+}
+/* .img-test{
+    position: absolute;
+    width: 20vw;
+    height: auto;
+    top: 16px;
+    left: 15px;
+} */
 
 #circles-bottom{
     bottom: -28px;
