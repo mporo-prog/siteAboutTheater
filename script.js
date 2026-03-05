@@ -7,11 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
     let framesPaintings = document.querySelector('[data-test="frames-paintings"]')
     let painting1 = document.querySelector('[data-test="painting1"]')
-    let frame1 = document.querySelector('[data-test="frame1"]')
-    let framePainting1 = document.querySelector('[data-test="frame-painting1"]')
     let painting2 = document.querySelector('[data-test="painting2"]')
     let painting3 = document.querySelector('[data-test="painting3"]')
     let painting4 = document.querySelector('[data-test="painting4"]')
+    let frame1 = document.querySelector('[data-test="frame1"]')
+    let frame2 = document.querySelector('[data-test="frame2"]')
+    let frame3 = document.querySelector('[data-test="frame3"]')
+    let frame4 = document.querySelector('[data-test="frame4"]')
+    let framePainting1 = document.querySelector('[data-test="frame-painting1"]')
+    let framePainting2 = document.querySelector('[data-test="frame-painting2"]')
+    let framePainting3 = document.querySelector('[data-test="frame-painting3"]')
+    let framePainting4 = document.querySelector('[data-test="frame-painting4"]')
     let draggble = false
 
     function AllBlobes() {
@@ -41,35 +47,44 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ticket.innerHTML = html;
     }
-    function TouchParent(){
-        let parentY = frame1.getBoundingClientRect().top + frame1.getBoundingClientRect().height / 8
-        let parentX = frame1.getBoundingClientRect().left + frame1.getBoundingClientRect().width / 8
-        let childY = painting1.getBoundingClientRect().top
-        let childX = painting1.getBoundingClientRect().left
-        if((parentX >= childX) && (parentY >= childY)){
-            painting1.style.display = 'none'
-            framePainting1.style.display = 'inline'
+    function TouchParent(frame, painting, framePainting){
+        let parentYTop = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
+        let parentYBottom = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
+        let parentXLeft = Math.floor((frame.getBoundingClientRect().left + frame.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
+        let parentXRight = Math.floor((frame.getBoundingClientRect().left + frame.getBoundingClientRect().right) / 2 + window.innerWidth * 0.02)
+        let childY = Math.floor((painting.getBoundingClientRect().top + painting.getBoundingClientRect().bottom) / 2)
+        let childX = Math.floor((painting.getBoundingClientRect().left + painting.getBoundingClientRect().right) / 2)
+
+        if((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)){
+            painting.style.display = 'none'
+            framePainting.style.display = 'inline'
         }
     }
 
-    AllBlobes()
+    function PointerWithPaintings(frame, painting, framePainting){
+        painting.addEventListener('pointerdown', (e) => {
+            painting.style.position = 'absolute'
+            draggble = true
+            painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+            painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
+        })
+        window.addEventListener('pointerup', () => {
+            draggble = false
+        })
+        painting.addEventListener('pointermove', (e) => {
+            TouchParent(frame, painting, framePainting)
+            if(draggble){
+                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+                painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
+            }
+        })
+    }
 
-    painting1.addEventListener('pointerdown', (e) => {
-        painting1.style.position = 'absolute'
-        draggble = true
-        painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
-        painting1.style.top = `${e.clientY - painting1.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
-    })
-    window.addEventListener('pointerup', () => {
-        draggble = false
-    })
-    painting1.addEventListener('pointermove', (e) => {
-        TouchParent()
-        if(draggble){
-            painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
-            painting1.style.top = `${e.clientY - painting1.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
-        }
-    })
+    AllBlobes()
+    PointerWithPaintings(frame1, painting1, framePainting1)
+    PointerWithPaintings(frame2, painting2, framePainting2)
+    PointerWithPaintings(frame3, painting3, framePainting3)
+    PointerWithPaintings(frame4, painting4, framePainting4)
 
     window.addEventListener("resize", AllBlobes())
 })
