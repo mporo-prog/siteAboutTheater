@@ -3,6 +3,9 @@
 body{
     width: 100vw;
     background-color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 30vw;
 }
 nav{
     position: relative;
@@ -12,9 +15,26 @@ nav{
     background-color: #D17620;
     border-radius: 0 0 2vw 2vw;
 }
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    padding: 4vw 3vw 2vw 3vw;
+    background-color: #D17620;
+    border-radius: 2vw 2vw 0 0;
+}
 h1{
     font-family: "Bebas";
     font-size: 7vw;
+    color: white;
+    line-height: 90%;
+}
+h2{
+    font-family: "Bebas";
+    font-size: 5vw;
     color: white;
     line-height: 90%;
 }
@@ -23,28 +43,52 @@ h1{
     height: fit-content;
     padding: 0 2vw 0 2vw;
     position: absolute;
-    bottom: -25px;
     left: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 1.5vw;
+    gap: 1vw;
 }
 .blob-laptop{
     width: 50px;
     height: 50px;
-    border-radius: 30px 30px 0 0;
+    border-radius: 30px;
     background-color: #000;
+    /* background-color: #fff; */
 }
 .blob-ipad{
     width: 40px;
     height: 40px;
-    border-radius: 30px 30px 0 0;
+    border-radius: 30px;
     background-color: #000;
 }
 .blob-phone{
     width: 20px;
     height:20px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     background-color: #000;
+    /* background-color: #fff; */
+}
+#circles-bottom{
+    bottom: -28px;
+}
+#circles-top{
+    top: -28px;
+}
+
+@media (max-width: 1024px){
+    #circles-bottom{
+        bottom: -26px;
+    }
+    #circles-top{
+        top: -26px;
+    }
+}
+@media (max-width: 440px){
+    #circles-bottom{
+        bottom: -13px;
+    }
+    #circles-top{
+        top: -13px;
+    }
 }
