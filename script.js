@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             draggble = false
         })
         painting.addEventListener('pointermove', (e) => {
-            preventDefault(e)
+            window.preventDefault()
             TouchParent(frame, painting, framePainting)
             if(draggble){
                 painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
