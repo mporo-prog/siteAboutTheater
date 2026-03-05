@@ -28,11 +28,23 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 12px;
+    gap: 1.5vw;
 }
-.blob{
+.blob-laptop{
     width: 50px;
     height: 50px;
     border-radius: 30px 30px 0 0;
-    background-color: black;
+    background-color: #000;
+}
+.blob-ipad{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px 30px 0 0;
+    background-color: #000;
+}
+.blob-phone{
+    width: 20px;
+    height:20px;
+    border-radius: 20px 20px 0 0;
+    background-color: #000;
 }

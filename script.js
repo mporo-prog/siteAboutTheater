@@ -1,13 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-    window.addEventListener("resize", (e) => {
+    function CreateBlob(){
         let ticket = document.querySelector('[data-test="circles"]')
-        let blobWidth = 50
+        let blobWidth = 0
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
         let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"));
+        let classBlob = ""
+        if(window.innerWidth > 1024){
+            blobWidth = 50
+            classBlob = "blob-laptop"
+            ticket.style.bottom = "-28px"
+        }
+        else if(window.innerWidth < 1025 && window.innerWidth > 440){
+            blobWidth = 40
+            classBlob = "blob-ipad"
+            ticket.style.bottom = "-25px"
+        }
+        else{
+            blobWidth = 20
+            classBlob = "blob-phone"
+            ticket.style.bottom = "-13px"
+        }
         html = ``;
-        for (let i = 0; i < Math.floor((e.currentTarget.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
-            html += `<div class="blob"></div>`;
+        for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
+            html += `<div class="${classBlob}"></div>`;
         }
         ticket.innerHTML = html;
+    }
+    CreateBlob()
+    window.addEventListener("resize", () => {
+        CreateBlob()
     })
 })
