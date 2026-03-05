@@ -77,7 +77,7 @@ img{
     width: 100%;
     height: fit-content;
     gap: 2vw;
-    padding: 0 2vw 0 2vw;
+    padding: 0 2vw 0 2vw; 
 }
 .frames{
     position: relative;
@@ -91,10 +91,14 @@ img{
     width: 20vw;
     height: auto;
 }
+.div-painting{
+    width: fit-content;
+    height: fit-content;
+}
 .img-painting-frame{
     width: 20vw;
     height: auto;
-    display: none;
+    /* display: none; */
 }
 .img-frame{
     position: absolute;

@@ -5,6 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let ticket1Bottom = document.querySelector('[data-test="circles-ticket1-bottom"]')
     let ticket2Top = document.querySelector('[data-test="circles-ticket2-top"]')
     let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
+    let framesPaintings = document.querySelector('[data-test="frames-paintings"]')
+    let painting1 = document.querySelector('[data-test="painting1"]')
+    let painting2 = document.querySelector('[data-test="painting2"]')
+    let painting3 = document.querySelector('[data-test="painting3"]')
+    let painting4 = document.querySelector('[data-test="painting4"]')
+    let draggble = false
 
     function AllBlobes() {
         CreateBlob(ticketNav)
@@ -18,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let blobWidth = 0
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
         let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"));
-        let classBlob = ""
         if(window.innerWidth > 1024){
             blobWidth = 50
         }
@@ -35,9 +40,24 @@ document.addEventListener("DOMContentLoaded", () => {
         ticket.innerHTML = html;
     }
 
-    AllBlobes()
+    // AllBlobes()
 
-    window.addEventListener("resize", () => {
-        AllBlobes()
+    painting1.addEventListener('pointerdown', (e) => {
+        painting1.style.position = 'absolute'
+        draggble = true
+        console.log(e)
+        painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+        painting1.style.top = `${e.clientY - framesPaintings.offsetTop - painting1.getBoundingClientRect().height / 2}px`
     })
+    window.addEventListener('pointerup', () => {
+        draggble = false
+    })
+    painting1.addEventListener('pointermove', (e) => {
+        if(draggble){
+            painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+            painting1.style.top = `${e.clientY - framesPaintings.offsetTop - painting1.getBoundingClientRect().height / 2}px`
+        }
+    })
+
+    // window.addEventListener("resize", AllBlobes())
 })

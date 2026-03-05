@@ -8,10 +8,10 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
         <h1>Актёрское мастерство — это многогранное искусство</h1>
         <div data-test="circles-nav" class="circles" id="circles-bottom"></div> 
-    </nav>
+    </nav> -->
     <div class="frames-painting-strings">
         <div class="frames">
             <div class="frame">
@@ -35,11 +35,13 @@
             <img src="assets/frame3.svg" class="img-frame">
             <img src="assets/frame4.svg" class="img-frame"> -->
         </div>
-        <div class="frames">
-            <img src="assets/painting1.svg" class="img-painting">
-            <img src="assets/painting2.svg" class="img-painting">
-            <img src="assets/painting3.svg" class="img-painting">
-            <img src="assets/painting4.svg" class="img-painting">
+        <div class="frames" data-test="frames-paintings">
+            <div class="div-painting" data-test="painting1">
+                <img src="assets/painting1.svg" class="img-painting">
+            </div>
+            <img src="assets/painting2.svg" class="img-painting" data-test="painting2">
+            <img src="assets/painting3.svg" class="img-painting" data-test="painting3">
+            <img src="assets/painting4.svg" class="img-painting" data-test="painting4">
         </div>
     </div>
     <div class="ticket1">
