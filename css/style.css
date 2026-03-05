@@ -38,6 +38,10 @@ h2{
     color: white;
     line-height: 90%;
 }
+img{
+    user-select: none;
+    -webkit-user-drag: none;
+}
 .circles{
     width: 100%;
     height: fit-content;
@@ -53,7 +57,6 @@ h2{
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    /* background-color: #000; */
     background-color: #fff;
 }
 .blob-ipad{
@@ -67,7 +70,6 @@ h2{
     height:20px;
     border-radius: 20px;
     background-color: #000;
-    /* background-color: #fff; */
 }
 .ticket1{
     width: 100%;
@@ -97,21 +99,28 @@ h2{
     flex-direction: row;
     justify-content: space-between;
 }
-.img-frame{
-    width: 23vw;
-    height: auto;
-}
 .img-painting{
     width: 20vw;
     height: auto;
 }
-/* .img-test{
-    position: absolute;
+.img-painting-frame{
     width: 20vw;
     height: auto;
-    top: 16px;
-    left: 15px;
-} */
+    display: none;
+}
+.img-frame{
+    position: absolute;
+    width: 23vw;
+    height: auto;
+}
+.frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 18vw;
+    width: 23vw;
+}
 
 #circles-bottom{
     bottom: -28px;

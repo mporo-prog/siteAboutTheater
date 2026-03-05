@@ -22,17 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if(window.innerWidth > 1024){
             blobWidth = 50
             classBlob = "blob-laptop"
-            // ticket.style.bottom = "-28px"
         }
         else if(window.innerWidth < 1025 && window.innerWidth > 440){
             blobWidth = 35
             classBlob = "blob-ipad"
-            // ticket.style.bottom = "-25px"
         }
         else{
             blobWidth = 25
             classBlob = "blob-phone"
-            // ticket.style.bottom = "-13px"
         }
         html = ``;
         for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
