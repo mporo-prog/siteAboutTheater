@@ -40,14 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
         ticket.innerHTML = html;
     }
 
-    // AllBlobes()
+    AllBlobes()
 
     painting1.addEventListener('pointerdown', (e) => {
         painting1.style.position = 'absolute'
         draggble = true
-        console.log(e)
         painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
-        painting1.style.top = `${e.clientY - framesPaintings.offsetTop - painting1.getBoundingClientRect().height / 2}px`
+        painting1.style.top = `${e.clientY - painting1.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
     })
     window.addEventListener('pointerup', () => {
         draggble = false
@@ -55,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
     painting1.addEventListener('pointermove', (e) => {
         if(draggble){
             painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
-            painting1.style.top = `${e.clientY - framesPaintings.offsetTop - painting1.getBoundingClientRect().height / 2}px`
+            painting1.style.top = `${e.clientY - painting1.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
         }
     })
 
-    // window.addEventListener("resize", AllBlobes())
+    window.addEventListener("resize", AllBlobes())
 })
