@@ -53,8 +53,8 @@ h2{
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    background-color: #000;
-    /* background-color: #fff; */
+    /* background-color: #000; */
+    background-color: #fff;
 }
 .blob-ipad{
     width: 40px;
@@ -69,6 +69,19 @@ h2{
     background-color: #000;
     /* background-color: #fff; */
 }
+.ticket1{
+    width: 100%;
+    height: 30vw;
+    background-color: #D17620;
+    position: relative;
+}
+.ticket2{
+    width: 100%;
+    height: 20vw;
+    background-color: #D17620;
+    position: relative;
+}
+
 #circles-bottom{
     bottom: -28px;
 }

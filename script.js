@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     let ticketNav = document.querySelector('[data-test="circles-nav"]')
     let ticketFooter = document.querySelector('[data-test="circles-footer"]')
+    let ticket1Top = document.querySelector('[data-test="circles-ticket1-top"]')
+    let ticket1Bottom = document.querySelector('[data-test="circles-ticket1-bottom"]')
+    let ticket2Top = document.querySelector('[data-test="circles-ticket2-top"]')
+    let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
+
+    function AllBlobes() {
+        CreateBlob(ticketNav)
+        CreateBlob(ticketFooter)
+        CreateBlob(ticket1Top)
+        CreateBlob(ticket1Bottom)
+        CreateBlob(ticket2Top)
+        CreateBlob(ticket2Bottom)
+    }
     function CreateBlob(ticket){
         let blobWidth = 0
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
@@ -27,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ticket.innerHTML = html;
     }
-    CreateBlob(ticketNav)
-    CreateBlob(ticketFooter)
+
+    AllBlobes()
+    
     window.addEventListener("resize", () => {
-        CreateBlob(ticketNav)
-        CreateBlob(ticketFooter)
+        AllBlobes()
     })
 })
