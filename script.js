@@ -21,19 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let classBlob = ""
         if(window.innerWidth > 1024){
             blobWidth = 50
-            classBlob = "blob-laptop"
         }
         else if(window.innerWidth < 1025 && window.innerWidth > 440){
             blobWidth = 35
-            classBlob = "blob-ipad"
         }
         else{
             blobWidth = 25
-            classBlob = "blob-phone"
         }
         html = ``;
         for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
-            html += `<div class="${classBlob}"></div>`;
+            html += `<div class="blob"></div>`;
         }
         ticket.innerHTML = html;
     }

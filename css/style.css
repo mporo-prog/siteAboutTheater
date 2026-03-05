@@ -53,23 +53,11 @@ img{
     justify-content: space-between;
     gap: 1vw;
 }
-.blob-laptop{
+.blob{
     width: 50px;
     height: 50px;
     border-radius: 30px;
     background-color: #fff;
-}
-.blob-ipad{
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    background-color: #000;
-}
-.blob-phone{
-    width: 20px;
-    height:20px;
-    border-radius: 20px;
-    background-color: #000;
 }
 .ticket1{
     width: 100%;
@@ -130,14 +118,22 @@ img{
 }
 
 @media (max-width: 1024px){
+    .blob{
+        width: 35px;
+        height: 35px;
+    }
     #circles-bottom{
-        bottom: -26px;
+        bottom: -17px;
     }
     #circles-top{
-        top: -26px;
+        top: -17px;
     }
 }
 @media (max-width: 440px){
+    .blob{
+        width: 25px;
+        height: 25px;
+    }
     #circles-bottom{
         bottom: -13px;
     }
