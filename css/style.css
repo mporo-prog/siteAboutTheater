@@ -98,7 +98,7 @@ img{
 .img-painting-frame{
     width: 20vw;
     height: auto;
-    /* display: none; */
+    display: none;
 }
 .img-frame{
     position: absolute;

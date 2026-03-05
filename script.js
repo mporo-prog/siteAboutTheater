@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
     let framesPaintings = document.querySelector('[data-test="frames-paintings"]')
     let painting1 = document.querySelector('[data-test="painting1"]')
+    let frame1 = document.querySelector('[data-test="frame1"]')
+    let framePainting1 = document.querySelector('[data-test="frame-painting1"]')
     let painting2 = document.querySelector('[data-test="painting2"]')
     let painting3 = document.querySelector('[data-test="painting3"]')
     let painting4 = document.querySelector('[data-test="painting4"]')
@@ -39,6 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ticket.innerHTML = html;
     }
+    function TouchParent(){
+        let parentY = frame1.getBoundingClientRect().top + frame1.getBoundingClientRect().height / 8
+        let parentX = frame1.getBoundingClientRect().left + frame1.getBoundingClientRect().width / 8
+        let childY = painting1.getBoundingClientRect().top
+        let childX = painting1.getBoundingClientRect().left
+        if((parentX >= childX) && (parentY >= childY)){
+            painting1.style.display = 'none'
+            framePainting1.style.display = 'inline'
+        }
+    }
 
     AllBlobes()
 
@@ -52,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         draggble = false
     })
     painting1.addEventListener('pointermove', (e) => {
+        TouchParent()
         if(draggble){
             painting1.style.left = `${e.clientX - painting1.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
             painting1.style.top = `${e.clientY - painting1.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
