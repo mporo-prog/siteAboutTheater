@@ -57,27 +57,36 @@ img{
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    background-color: #fff;
+    background-color: #000;
 }
 .ticket1{
     width: 100%;
     height: 30vw;
     background-color: #D17620;
     position: relative;
+    border-radius: 2vw;
 }
 .ticket2{
     width: 100%;
-    height: 20vw;
+    height: fit-content;
     background-color: #D17620;
     position: relative;
+    border-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    justify-content: space-between;
+    padding: 5vw 2vw 4vw 2vw;
 }
 .frames-painting-strings{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: fit-content;
+    height: 800px;
     gap: 2vw;
     padding: 0 2vw 0 2vw; 
+    justify-content: space-between;
 }
 .frames{
     position: relative;
@@ -112,6 +121,47 @@ img{
     position: relative;
     height: 18vw;
     width: 23vw;
+}
+.acting{
+    font-family: "GarPro";
+    color: #fff;
+    font-size: 2vw;
+    text-align: center;
+    line-height: 120%;
+    position: absolute;
+    display: none;
+}
+.happy-ticket{
+    font-family: "Bebas";
+    color: #fff;
+    font-size: 9vw;
+    line-height: 90%;
+}
+.lottery-ticket{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    background-color: #000;
+    border-radius: 1vw;
+    border: #fff 1vw solid;
+    padding: 2vw;
+    p{
+        font-family: "GarPro";
+        line-height: 120%;
+        color: #fff;
+        font-size: 2vw;
+        text-align: center;
+    }
+}
+.lottery{
+    width: 98%;
+    height: 78%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 0.2vw;
 }
 
 #circles-bottom{

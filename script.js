@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let framePainting3 = document.querySelector('[data-test="frame-painting3"]')
     let framePainting4 = document.querySelector('[data-test="frame-painting4"]')
     let draggble = false
+    let acting = document.querySelector('[data-test="acting"]')
+    let count = 0
 
     function AllBlobes() {
         CreateBlob(ticketNav)
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)){
             painting.style.display = 'none'
             framePainting.style.display = 'inline'
+            count++
         }
     }
 
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             draggble = false
         })
         painting.addEventListener('pointermove', (e) => {
-            window.preventDefault()
+            e.preventDefault()
             TouchParent(frame, painting, framePainting)
             if(draggble){
                 painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
@@ -81,11 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
+    function CheckPaintings(){
+        if(count == 4){
+            acting.style.position = "static"
+            acting.style.display = "inline"
+        }
+    }
+
     AllBlobes()
     PointerWithPaintings(frame1, painting1, framePainting1)
     PointerWithPaintings(frame2, painting2, framePainting2)
     PointerWithPaintings(frame3, painting3, framePainting3)
     PointerWithPaintings(frame4, painting4, framePainting4)
+    CheckPaintings()
 
     window.addEventListener("resize", AllBlobes())
 })
