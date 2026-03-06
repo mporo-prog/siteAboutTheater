@@ -56,28 +56,8 @@ img{
 .blob{
     width: 50px;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 100%;
     background-color: #000;
-}
-.ticket1{
-    width: 100%;
-    height: 30vw;
-    background-color: #D17620;
-    position: relative;
-    border-radius: 2vw;
-}
-.ticket2{
-    width: 100%;
-    height: fit-content;
-    background-color: #D17620;
-    position: relative;
-    border-radius: 2vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1vw;
-    justify-content: space-between;
-    padding: 5vw 2vw 4vw 2vw;
 }
 .frames-painting-strings{
     display: flex;
@@ -131,6 +111,91 @@ img{
     position: absolute;
     display: none;
 }
+.ticket1{
+    width: 100%;
+    height: 30vw;
+    background-color: #D17620;
+    position: relative;
+    border-radius: 2vw;
+    overflow: hidden;
+}
+.basic-systems{
+    position: absolute;
+    top: 3vw;
+    left: -2vw;
+    rotate: -15deg;
+    width: 40%;
+    height: 40%;
+    background-color: #D17620;
+    border: #fff 0.5vw solid;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div{
+        width: 98%;
+        border-radius: 0.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2vw 1vw 1vw 1vw;
+        background-color: #fff;
+        p{
+            font-family: "Bebas";
+            line-height: 90%;
+            font-size: 4vw;
+            color: #D17620;
+            text-align: center;
+        }
+
+    }
+}
+.masters-of-acting{
+    position: absolute;
+    top: 5vw;
+    right: -1vw;
+    rotate: 15deg;
+    /* width: 35%; */
+    width: fit-content;
+    height: 20%;
+    background-color: #D17620;
+    border: #fff 0.5vw solid;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.4vw 0 0.4vw ;
+    div{
+        width: fit-content;
+        border-radius: 0.3vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1vw 1vw 0.5vw 1vw;
+        background-color: #fff;
+        p{
+            font-family: "Bebas";
+            line-height: 90%;
+            font-size: 3vw;
+            color: #D17620;
+            text-align: center;
+        }
+
+    }
+}
+.ticket2{
+    width: 100%;
+    height: fit-content;
+    background-color: #D17620;
+    position: relative;
+    border-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    justify-content: space-between;
+    padding: 5vw 2vw 4vw 2vw;
+}
 .happy-ticket{
     font-family: "Bebas";
     color: #fff;
@@ -173,8 +238,8 @@ img{
 
 @media (max-width: 1024px){
     .blob{
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
     #circles-bottom{
         bottom: -17px;
@@ -185,13 +250,13 @@ img{
 }
 @media (max-width: 440px){
     .blob{
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
     }
     #circles-bottom{
-        bottom: -13px;
+        bottom: -12px;
     }
     #circles-top{
-        top: -13px;
+        top: -12px;
     }
 }

@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         CreateBlob(ticket2Top)
         CreateBlob(ticket2Bottom)
     }
+
     function CreateBlob(ticket){
         let blobWidth = 0
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
@@ -38,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
             blobWidth = 50
         }
         else if(window.innerWidth < 1025 && window.innerWidth > 440){
-            blobWidth = 35
+            blobWidth = 30
         }
         else{
-            blobWidth = 25
+            blobWidth = 20
         }
         html = ``;
         for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ticket.innerHTML = html;
     }
+
     function TouchParent(frame, painting, framePainting){
         let parentYTop = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
         let parentYBottom = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
@@ -98,5 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     PointerWithPaintings(frame4, painting4, framePainting4)
     CheckPaintings()
 
-    window.addEventListener("resize", AllBlobes())
+    window.addEventListener("resize", () => {
+        AllBlobes()
+    })
+
 })
