@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let framePainting2 = document.querySelector('[data-test="frame-painting2"]')
     let framePainting3 = document.querySelector('[data-test="frame-painting3"]')
     let framePainting4 = document.querySelector('[data-test="frame-painting4"]')
-    let draggble = false
+    let draggable = false
     let acting = document.querySelector('[data-test="acting"]')
     let count = 0
 
@@ -31,17 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
         CreateBlob(ticket2Bottom)
     }
 
-    function CreateBlob(ticket){
+    function CreateBlob(ticket) {
         let blobWidth = 0
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
         let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"));
-        if(window.innerWidth > 1024){
+        if (window.innerWidth > 1024) {
             blobWidth = 50
         }
-        else if(window.innerWidth < 1025 && window.innerWidth > 440){
+        else if (window.innerWidth < 1025 && window.innerWidth > 440) {
             blobWidth = 30
         }
-        else{
+        else {
             blobWidth = 20
         }
         html = ``;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ticket.innerHTML = html;
     }
 
-    function TouchParent(frame, painting, framePainting){
+    function TouchParent(frame, painting, framePainting) {
         let parentYTop = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
         let parentYBottom = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
         let parentXLeft = Math.floor((frame.getBoundingClientRect().left + frame.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
@@ -59,35 +59,38 @@ document.addEventListener("DOMContentLoaded", () => {
         let childY = Math.floor((painting.getBoundingClientRect().top + painting.getBoundingClientRect().bottom) / 2)
         let childX = Math.floor((painting.getBoundingClientRect().left + painting.getBoundingClientRect().right) / 2)
 
-        if((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)){
+        if ((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)) {
             painting.style.display = 'none'
             framePainting.style.display = 'inline'
             count++
+            CheckPaintings()
         }
     }
 
-    function PointerWithPaintings(frame, painting, framePainting){
+    function PointerWithPaintings(frame, painting, framePainting) {
         painting.addEventListener('pointerdown', (e) => {
+            document.body.style.overflow = "hidden"
             painting.style.position = 'absolute'
-            draggble = true
+            draggable = true
             painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
             painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
         })
         window.addEventListener('pointerup', () => {
-            draggble = false
+            document.body.style.overflow = "auto"
+            draggable = false
+            console.log(draggable)
         })
-        painting.addEventListener('pointermove', (e) => {
-            e.preventDefault()
+        window.addEventListener('pointermove', (e) => {
             TouchParent(frame, painting, framePainting)
-            if(draggble){
+            if (draggable) {
                 painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
                 painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
             }
         })
     }
 
-    function CheckPaintings(){
-        if(count == 4){
+    function CheckPaintings() {
+        if (count == 4) {
             acting.style.position = "static"
             acting.style.display = "inline"
         }
@@ -98,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
     PointerWithPaintings(frame2, painting2, framePainting2)
     PointerWithPaintings(frame3, painting3, framePainting3)
     PointerWithPaintings(frame4, painting4, framePainting4)
-    CheckPaintings()
 
     window.addEventListener("resize", () => {
         AllBlobes()

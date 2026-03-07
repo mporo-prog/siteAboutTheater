@@ -5,7 +5,7 @@ body{
     background-color: black;
     display: flex;
     flex-direction: column;
-    gap: 30vw;
+    gap: 10vw;
 }
 nav{
     position: relative;
@@ -14,6 +14,9 @@ nav{
     padding: 3vw;
     background-color: #D17620;
     border-radius: 0 0 2vw 2vw;
+    @media (max-width: 440px){
+        padding: 5vw;
+    }
 }
 footer{
     display: flex;
@@ -31,6 +34,9 @@ h1{
     font-size: 7vw;
     color: white;
     line-height: 90%;
+    @media (max-width: 440px){
+        font-size: 9vw;
+    }
 }
 h2{
     font-family: "Bebas";
@@ -58,15 +64,27 @@ img{
     height: 50px;
     border-radius: 100%;
     background-color: #000;
+    @media (max-width: 1024px){
+        width: 30px;
+        height: 30px;
+    }
+    @media (max-width: 440px){
+        width: 20px;
+        height: 20px;
+    }
 }
 .frames-painting-strings{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 800px;
+    height: 100%;
+    touch-action: none;
     gap: 2vw;
     padding: 0 2vw 0 2vw; 
     justify-content: space-between;
+    @media (max-width: 440px){
+        flex-direction: row;
+    }
 }
 .frames{
     position: relative;
@@ -75,10 +93,19 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @media (max-width: 440px){
+        flex-direction: column;
+        height: 100vw;
+        gap: 2vw;
+        align-items: center;
+    }
 }
 .img-painting{
     width: 20vw;
     height: auto;
+    @media (max-width: 440px){
+        width: 28vw;
+    }
 }
 .div-painting{
     width: fit-content;
@@ -88,11 +115,17 @@ img{
     width: 20vw;
     height: auto;
     display: none;
+    @media (max-width: 440px){
+        width: 28vw;
+    }
 }
 .img-frame{
     position: absolute;
     width: 23vw;
     height: auto;
+    @media (max-width: 440px){
+        width: 32vw;
+    }
 }
 .frame{
     display: flex;
@@ -101,6 +134,10 @@ img{
     position: relative;
     height: 18vw;
     width: 23vw;
+    @media (max-width: 440px){
+        width: 32vw;
+        height: 30vw;
+    }
 }
 .acting{
     font-family: "GarPro";
@@ -155,7 +192,6 @@ img{
     top: 5vw;
     right: -1vw;
     rotate: 15deg;
-    /* width: 35%; */
     width: fit-content;
     height: 20%;
     background-color: #D17620;
@@ -177,6 +213,7 @@ img{
             font-family: "Bebas";
             line-height: 90%;
             font-size: 3vw;
+            letter-spacing: -4%;
             color: #D17620;
             text-align: center;
         }
@@ -228,35 +265,21 @@ img{
     position: absolute;
     border-radius: 0.2vw;
 }
-
 #circles-bottom{
     bottom: -28px;
+    @media (max-width: 1024px){
+       bottom: -17px;
+    }
+    @media (max-width: 440px){
+        bottom: -12px;
+    }
 }
 #circles-top{
     top: -28px;
-}
-
-@media (max-width: 1024px){
-    .blob{
-        width: 30px;
-        height: 30px;
+    @media (max-width: 1024px){
+       top: -17px;
     }
-    #circles-bottom{
-        bottom: -17px;
-    }
-    #circles-top{
-        top: -17px;
-    }
-}
-@media (max-width: 440px){
-    .blob{
-        width: 20px;
-        height: 20px;
-    }
-    #circles-bottom{
-        bottom: -12px;
-    }
-    #circles-top{
+    @media (max-width: 440px){
         top: -12px;
     }
 }
