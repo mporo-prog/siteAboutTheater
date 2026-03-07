@@ -48,6 +48,40 @@ img{
     user-select: none;
     -webkit-user-drag: none;
 }
+.div-art{
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+.div-Bigart{
+    top: 37%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    display: none;
+    .art{
+        font-size: 15vw;
+        @media (max-width: 1024px) {
+            font-size: 27vw;
+        }
+    }
+    @media (max-width: 1024px) {
+        top: 20%;
+    }
+}
+.art{
+    font-family: "Bebas";
+    font-size: 2vw;
+    line-height: 100%;
+    letter-spacing: -4%;
+    color: #fff;
+    white-space: nowrap;
+    @media (max-width: 1024px) {
+        font-size: 6vw;
+    }
+}
 .circles{
     width: 100%;
     height: fit-content;
@@ -58,6 +92,7 @@ img{
     flex-direction: row;
     justify-content: space-between;
     gap: 1vw;
+    z-index: 0;
 }
 .blob{
     width: 4vw;
@@ -66,6 +101,7 @@ img{
     background-color: #000;
 }
 .frames-painting-strings{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -73,10 +109,10 @@ img{
     touch-action: none;
     gap: 2vw;
     padding: 0 2vw 0 2vw; 
-    justify-content: space-between;
+    /* justify-content: center; */
     min-height: fit-content;
-    @media (max-width: 1024px){
-        height: 100vw;
+    @media (max-width: 1024px) {
+        height: 136vw;
     }
 }
 .frames{
@@ -86,30 +122,34 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 3;
+    .adaptive-for-phones{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
     @media (max-width: 1024px){
         flex-direction: column;
         height: 100%;
         gap: 2vw;
         align-items: center;
+        justify-content: normal;
     }
 }
 .img-painting{
     width: 20vw;
     height: auto;
     @media (max-width: 1024px){
-        width: 28vw;
+        width: 40vw;
     }
-}
-.div-painting{
-    width: fit-content;
-    height: fit-content;
 }
 .img-painting-frame{
     width: 20vw;
     height: auto;
     display: none;
     @media (max-width: 1024px){
-        width: 28vw;
+        width: 40vw;
     }
 }
 .img-frame{
@@ -117,7 +157,7 @@ img{
     width: 23vw;
     height: auto;
     @media (max-width: 1024px){
-        width: 32vw;
+        width: 45vw;
     }
 }
 .frame{
@@ -128,8 +168,22 @@ img{
     height: 18vw;
     width: 23vw;
     @media (max-width: 1024px){
-        width: 32vw;
-        height: 25vw;
+        width: 45vw;
+        height: 35vw;
+    }
+}
+.div-acting{
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 2vw;
+    padding: 2vw;
+    @media (max-width: 1024px) {
+        align-items: center;
+        background-color: #D17620;
     }
 }
 .acting{
@@ -138,8 +192,9 @@ img{
     font-size: 2vw;
     text-align: center;
     line-height: 120%;
-    position: absolute;
-    display: none;
+    @media (max-width: 1024px) {
+        font-size: 6vw;
+    }
 }
 .ticket1{
     width: 100%;
@@ -261,7 +316,7 @@ img{
 
 
 
-.adaptivePhonePaintings{
+/* .adaptivePhonePaintings{
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -270,7 +325,7 @@ img{
         display: flex;
         flex-direction: row;
     }
-}
+} */
 
 
 
