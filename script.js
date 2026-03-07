@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let maxWidthIpad = 1024
     let ticketNav = document.querySelector('[data-test="circles-nav"]')
     let ticketFooter = document.querySelector('[data-test="circles-footer"]')
     let ticket1Top = document.querySelector('[data-test="circles-ticket1-top"]')
@@ -22,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let acting = document.querySelector('[data-test="acting"]')
     let count = 0
 
+    let frames = document.querySelector('[data-test="frames"]')
+
     function AllBlobes() {
         CreateBlob(ticketNav)
         CreateBlob(ticketFooter)
@@ -35,15 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let blobWidth = window.innerWidth * 0.04
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
         let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"));
-        // if (window.innerWidth > 1024) {
-        //     blobWidth = 50
-        // }
-        // else if (window.innerWidth < 1025 && window.innerWidth > 440) {
-        //     blobWidth = 30
-        // }
-        // else {
-        //     blobWidth = 20
-        // }
         html = ``;
         for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
             html += `<div class="blob"></div>`;
@@ -72,7 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "hidden"
             painting.style.position = 'absolute'
             draggable = true
-            painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+            if(window.innerWidth <= maxWidthIpad){
+                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width - window.innerWidth * 0.02 * 2 - frame.getBoundingClientRect().width}px`
+            }
+            else{
+                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+            }
             painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
         })
         window.addEventListener('pointerup', () => {
@@ -82,18 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('pointermove', (e) => {
             TouchParent(frame, painting, framePainting)
             if (draggable) {
-                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+                if(window.innerWidth <= maxWidthIpad){
+                    painting.style.left = `${e.clientX - painting.getBoundingClientRect().width - window.innerWidth * 0.02 * 2 - frame.getBoundingClientRect().width}px`
+                }
+                else{
+                    painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
+                }
                 painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
             }
         })
     }
 
     function CheckPaintings() {
-        if (count == 3){
-            acting.style.position = "static"
-        }
         if (count == 4) {
+            acting.style.position = "static"
             acting.style.display = "inline"
+            framesPaintings.style.display = "none"
         }
     }
 
