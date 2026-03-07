@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "auto"
             draggable = false
         })
-        window.addEventListener('pointermove', (e) => {
+        painting.addEventListener('pointermove', (e) => {
             TouchParent(frame, painting, framePainting)
             if (draggable) {
                 if(window.innerWidth <= maxWidthIpad){
