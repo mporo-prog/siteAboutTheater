@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let ticket1Bottom = document.querySelector('[data-test="circles-ticket1-bottom"]')
     let ticket2Top = document.querySelector('[data-test="circles-ticket2-top"]')
     let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
+    let framePaintingStrings = document.querySelector('[data-test="frames-painting-strings"]')
     let framesPaintings = document.querySelector('[data-test="frames-paintings"]')
+    let frames = document.querySelector('[data-test="frames"]')
     let painting1 = document.querySelector('[data-test="painting1"]')
     let painting2 = document.querySelector('[data-test="painting2"]')
     let painting3 = document.querySelector('[data-test="painting3"]')
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let acting = document.querySelector('[data-test="acting"]')
     let count = 0
 
-    let frames = document.querySelector('[data-test="frames"]')
+
 
     function AllBlobes() {
         CreateBlob(ticketNav)
@@ -63,11 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function PointerWithPaintings(frame, painting, framePainting) {
         painting.addEventListener('pointerdown', (e) => {
-            document.body.style.overflow = "hidden"
+            framePaintingStrings.style.touchAction = "none"
+
+
             painting.style.position = 'absolute'
             draggable = true
             if(window.innerWidth <= maxWidthIpad){
-                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width - window.innerWidth * 0.02 * 2 - frame.getBoundingClientRect().width}px`
+                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02 * 2 - frames.getBoundingClientRect().width}px`
             }
             else{
                 painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
@@ -75,14 +79,16 @@ document.addEventListener("DOMContentLoaded", () => {
             painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
         })
         window.addEventListener('pointerup', () => {
-            document.body.style.overflow = "auto"
+            framePaintingStrings.style.touchAction = "pan-y"
+
+
             draggable = false
         })
         painting.addEventListener('pointermove', (e) => {
             TouchParent(frame, painting, framePainting)
             if (draggable) {
                 if(window.innerWidth <= maxWidthIpad){
-                    painting.style.left = `${e.clientX - painting.getBoundingClientRect().width - window.innerWidth * 0.02 * 2 - frame.getBoundingClientRect().width}px`
+                    painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02 * 2 - frames.getBoundingClientRect().width}px`
                 }
                 else{
                     painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
