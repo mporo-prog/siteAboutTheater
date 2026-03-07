@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
             painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
         })
         window.addEventListener('pointerup', () => {
-            framePaintingStrings.style.touchAction = "pan-y"
 
 
             draggable = false
@@ -103,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
             acting.style.position = "static"
             acting.style.display = "inline"
             framesPaintings.style.display = "none"
+            framePaintingStrings.style.touchAction = "pan-y"
         }
     }
 
