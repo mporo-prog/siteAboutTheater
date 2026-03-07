@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         painting.addEventListener('pointerdown', (e) => {
             // framePaintingStrings.style.touchAction = "none"
 
-
+            painting.style.cursor = "grabbing"
             painting.style.position = 'absolute'
             draggable = true
             painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
@@ -79,12 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         window.addEventListener('pointerup', () => {
 
-
+            painting.style.cursor = "grab"
             draggable = false
         })
         painting.addEventListener('pointermove', (e) => {
+            painting.style.cursor = "grab"
             TouchParent(frame, painting, framePainting)
             if (draggable) {
+                painting.style.cursor = "grabbing"
                 painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - window.innerWidth * 0.02}px`
                 painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
             }
