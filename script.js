@@ -1,18 +1,46 @@
+let painting2 = document.querySelector('[data-test="painting2"]')
+document.addEventListener("DOMContentLoaded", () => {let maxWidthIpad = 1024
+let painting1 = document.querySelector('[data-test="painting1"]')
+let painting3 = document.querySelector('[data-test="painting3"]')
+let painting4 = document.querySelector('[data-test="painting4"]')
+let framePaintingWithoutColor1 = document.querySelector('[data-test="frame-painting-without-color1"]')
+let framePaintingWithoutColor2 = document.querySelector('[data-test="frame-painting-without-color2"]')
+let framePaintingWithoutColor3 = document.querySelector('[data-test="frame-painting-without-color3"]')
+let framePaintingWithoutColor4 = document.querySelector('[data-test="frame-painting-without-color4"]')
+let framePaintingStrings = document.querySelector('[data-test="frames-painting-strings"]')
+function BuildAdaptivePaintingsForPhone(){
+    if(window.innerWidth <= maxWidthIpad){
+        console.log(painting2.outerHTML)
+        framePaintingStrings.innerHTML = `<div class="adaptivePhonePaintings"> ${painting3.outerHTML} ${painting2.outerHTML} </div> <div class="adaptivePhonePaintings"> ${framePaintingWithoutColor1.outerHTML} ${framePaintingWithoutColor2.outerHTML} </div> <div class="adaptivePhonePaintings"> ${framePaintingWithoutColor3.outerHTML} ${framePaintingWithoutColor4.outerHTML} </div> <div class="adaptivePhonePaintings"> ${painting4.outerHTML} ${painting1.outerHTML} </div>`
+        // console.log(framePainting2)
+    }
+    // else{
+    //     framePaintingStrings.innerHTML = outerHTMLPaintings
+    // }
+}
+
+
+
+BuildAdaptivePaintingsForPhone()
+// console.log(framePaintingStrings.innerHTML)
+// window.addEventListener("resize", () => {
+//     // BuildAdaptivePaintingsForPhone()
+// };
+})
+
 document.addEventListener("DOMContentLoaded", () => {
-    let maxWidthIpad = 1024
     let ticketNav = document.querySelector('[data-test="circles-nav"]')
     let ticketFooter = document.querySelector('[data-test="circles-footer"]')
     let ticket1Top = document.querySelector('[data-test="circles-ticket1-top"]')
     let ticket1Bottom = document.querySelector('[data-test="circles-ticket1-bottom"]')
     let ticket2Top = document.querySelector('[data-test="circles-ticket2-top"]')
     let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
-    let framePaintingStrings = document.querySelector('[data-test="frames-painting-strings"]')
     let framesPaintings = document.querySelector('[data-test="frames-paintings"]')
     let frames = document.querySelector('[data-test="frames"]')
-    let painting1 = document.querySelector('[data-test="painting1"]')
-    let painting2 = document.querySelector('[data-test="painting2"]')
-    let painting3 = document.querySelector('[data-test="painting3"]')
-    let painting4 = document.querySelector('[data-test="painting4"]')
+    // console.log(ti)
+    // painting3.addEventListener("click", () => {
+    //     console.log('yes')
+    // })
     let frame1 = document.querySelector('[data-test="frame1"]')
     let frame2 = document.querySelector('[data-test="frame2"]')
     let frame3 = document.querySelector('[data-test="frame3"]')
@@ -21,9 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let framePainting2 = document.querySelector('[data-test="frame-painting2"]')
     let framePainting3 = document.querySelector('[data-test="frame-painting3"]')
     let framePainting4 = document.querySelector('[data-test="frame-painting4"]')
-    let draggable = false
+
+
+
+
     let acting = document.querySelector('[data-test="acting"]')
+    let draggable = false
     let count = 0
+
+
+    // let outerHTMLPaintings = `${frames.outerHTML} ${framesPaintings.outerHTML}`
 
 
 
@@ -38,13 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function CreateBlob(ticket) {
         let blobWidth = window.innerWidth * 0.04
-        let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
-        let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"));
-        html = ``;
+        let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2
+        let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"))
+        html = ``
         for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
-            html += `<div class="blob"></div>`;
+            html += `<div class="blob"></div>`
         }
-        ticket.innerHTML = html;
+        ticket.innerHTML = html
     }
 
     function TouchParent(frame, painting, framePainting) {
@@ -65,7 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function PointerWithPaintings(frame, painting, framePainting) {
         painting.addEventListener('pointerdown', (e) => {
-            framePaintingStrings.style.touchAction = "none"
+            console.log('yes')
+            // framePaintingStrings.style.touchAction = "none"
 
 
             painting.style.position = 'absolute'
@@ -102,11 +138,20 @@ document.addEventListener("DOMContentLoaded", () => {
             acting.style.position = "static"
             acting.style.display = "inline"
             framesPaintings.style.display = "none"
-            framePaintingStrings.style.touchAction = "pan-y"
+            // framePaintingStrings.style.touchAction = "pan-y"
         }
     }
 
+
     AllBlobes()
+    if(painting2){
+        console.log('yes')
+    }
+
+    console.log(painting2)
+    console.log(frame2)
+    console.log(framePainting2)
+
     PointerWithPaintings(frame1, painting1, framePainting1)
     PointerWithPaintings(frame2, painting2, framePainting2)
     PointerWithPaintings(frame3, painting3, framePainting3)
@@ -114,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("resize", () => {
         AllBlobes()
+        // BuildAdaptivePaintingsForPhone()
     })
 
 })
