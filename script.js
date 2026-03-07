@@ -32,18 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function CreateBlob(ticket) {
-        let blobWidth = 0
+        let blobWidth = window.innerWidth * 0.04
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
         let gap = parseInt(window.getComputedStyle(ticket).getPropertyValue("row-gap"));
-        if (window.innerWidth > 1024) {
-            blobWidth = 50
-        }
-        else if (window.innerWidth < 1025 && window.innerWidth > 440) {
-            blobWidth = 30
-        }
-        else {
-            blobWidth = 20
-        }
+        // if (window.innerWidth > 1024) {
+        //     blobWidth = 50
+        // }
+        // else if (window.innerWidth < 1025 && window.innerWidth > 440) {
+        //     blobWidth = 30
+        // }
+        // else {
+        //     blobWidth = 20
+        // }
         html = ``;
         for (let i = 0; i < Math.floor((window.innerWidth - parseInt(paddings)) / (blobWidth + gap)); i++) {
             html += `<div class="blob"></div>`;
@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('pointerup', () => {
             document.body.style.overflow = "auto"
             draggable = false
-            console.log(draggable)
         })
         window.addEventListener('pointermove', (e) => {
             TouchParent(frame, painting, framePainting)
@@ -90,8 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function CheckPaintings() {
-        if (count == 4) {
+        if (count == 3){
             acting.style.position = "static"
+        }
+        if (count == 4) {
             acting.style.display = "inline"
         }
     }

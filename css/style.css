@@ -5,17 +5,17 @@ body{
     background-color: black;
     display: flex;
     flex-direction: column;
-    gap: 10vw;
+    /* gap: 10vw; */
 }
 nav{
     position: relative;
     width: 100%;
-    height: fit-content;
+    height: 20%;
     padding: 3vw;
     background-color: #D17620;
     border-radius: 0 0 2vw 2vw;
-    @media (max-width: 440px){
-        padding: 5vw;
+    @media (max-width: 1024px){
+        padding: 4vw;
     }
 }
 footer{
@@ -34,7 +34,7 @@ h1{
     font-size: 7vw;
     color: white;
     line-height: 90%;
-    @media (max-width: 440px){
+    @media (max-width: 1024px){
         font-size: 9vw;
     }
 }
@@ -60,30 +60,24 @@ img{
     gap: 1vw;
 }
 .blob{
-    width: 50px;
-    height: 50px;
+    width: 4vw;
+    height: 4vw;
     border-radius: 100%;
     background-color: #000;
-    @media (max-width: 1024px){
-        width: 30px;
-        height: 30px;
-    }
-    @media (max-width: 440px){
-        width: 20px;
-        height: 20px;
-    }
 }
 .frames-painting-strings{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 36vw;
     touch-action: none;
     gap: 2vw;
     padding: 0 2vw 0 2vw; 
     justify-content: space-between;
-    @media (max-width: 440px){
+    min-height: fit-content;
+    @media (max-width: 1024px){
         flex-direction: row;
+        height: 100vw;
     }
 }
 .frames{
@@ -93,9 +87,9 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    @media (max-width: 440px){
+    @media (max-width: 1024px){
         flex-direction: column;
-        height: 100vw;
+        height: 100%;
         gap: 2vw;
         align-items: center;
     }
@@ -103,7 +97,7 @@ img{
 .img-painting{
     width: 20vw;
     height: auto;
-    @media (max-width: 440px){
+    @media (max-width: 1024px){
         width: 28vw;
     }
 }
@@ -115,7 +109,7 @@ img{
     width: 20vw;
     height: auto;
     display: none;
-    @media (max-width: 440px){
+    @media (max-width: 1024px){
         width: 28vw;
     }
 }
@@ -123,7 +117,7 @@ img{
     position: absolute;
     width: 23vw;
     height: auto;
-    @media (max-width: 440px){
+    @media (max-width: 1024px){
         width: 32vw;
     }
 }
@@ -134,9 +128,9 @@ img{
     position: relative;
     height: 18vw;
     width: 23vw;
-    @media (max-width: 440px){
+    @media (max-width: 1024px){
         width: 32vw;
-        height: 30vw;
+        height: 25vw;
     }
 }
 .acting{
@@ -266,20 +260,8 @@ img{
     border-radius: 0.2vw;
 }
 #circles-bottom{
-    bottom: -28px;
-    @media (max-width: 1024px){
-       bottom: -17px;
-    }
-    @media (max-width: 440px){
-        bottom: -12px;
-    }
+    bottom: -2vw;
 }
 #circles-top{
-    top: -28px;
-    @media (max-width: 1024px){
-       top: -17px;
-    }
-    @media (max-width: 440px){
-        top: -12px;
-    }
+    top: -2vw;
 }
