@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let framePainting2 = document.querySelector('[data-test="frame-painting2"]')
     let framePainting3 = document.querySelector('[data-test="frame-painting3"]')
     let framePainting4 = document.querySelector('[data-test="frame-painting4"]')
+    let framePaintingWithoutColor1 = document.querySelector('[data-test="frame-painting-without-color1"]')
+    let framePaintingWithoutColor2 = document.querySelector('[data-test="frame-painting-without-color2"]')
+    let framePaintingWithoutColor3 = document.querySelector('[data-test="frame-painting-without-color3"]')
+    let framePaintingWithoutColor4 = document.querySelector('[data-test="frame-painting-without-color4"]')
     let divActing = document.querySelector('[data-test="div-acting"]')
     let divActingTop = document.querySelector('[data-test="div-acting-top"]')
     let divActingBottom = document.querySelector('[data-test="div-acting-bottom"]')
@@ -60,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let pieceOutPuzzle15 = document.querySelector('[data-test="pieceOutPuzzle15"]')
     let ticket2 = document.querySelector('[data-test="ticket2"]')
     let lottery = document.querySelector('[data-test="lottery"]');
-    // let lotteryTicket = document.querySelector('[data-test="lottery-ticket"]')
     let coin = document.querySelector('[data-test="coin"]')
     let mask1 = document.querySelector('[data-test="mask1"]')
     let mask2 = document.querySelector('[data-test="mask2"]')
@@ -76,14 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-    let framePaintingWithoutColor1 = document.querySelector('[data-test="frame-painting-without-color1"]')
-    let framePaintingWithoutColor2 = document.querySelector('[data-test="frame-painting-without-color2"]')
-    let framePaintingWithoutColor3 = document.querySelector('[data-test="frame-painting-without-color3"]')
-    let framePaintingWithoutColor4 = document.querySelector('[data-test="frame-painting-without-color4"]')
 
-    // function CreateTextAboutActing(){
-
-    // }
 
     function BuildAdaptivePaintingsForPhone(){
         while (framePaintingStrings.firstChild) {
@@ -199,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
             draggable = true
 
             painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - framesPaintings.getBoundingClientRect().left}px`
-            
+
             if(window.innerWidth <= maxWidthIpad){
                 painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framePaintingStrings.getBoundingClientRect().top}px`
             }
@@ -291,16 +287,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 cnv.elt.addEventListener('pointerdown', (e) => {
                 draggable = true;
-                // coin.style.display = 'block'; // Показываем монету
                 updateCoin(e);
             });
                 coin.addEventListener('pointerdown', (e) => {
                 draggable = true;
-                // coin.style.display = 'block'; // Показываем монету
                 updateCoin(e);
             });
 
-            // Движение (слушаем всё окно, чтобы не было рывков)
             coin.addEventListener('pointermove', (e) => {
                 if (draggable) updateCoin(e);
             });
@@ -308,10 +301,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (draggable) updateCoin(e);
             });
 
-            // Отпускаем
             window.addEventListener('pointerup', () => {
                 draggable = false;
-                // coin.style.display = 'none'; // Можно спрятать, если нужно
             });
 
             }
@@ -319,9 +310,6 @@ document.addEventListener("DOMContentLoaded", () => {
             function updateCoin(e) {
             const rect = lottery.getBoundingClientRect();
             
-            // Вычисляем позицию курсора ВНУТРИ родителя
-            // clientX/Y - положение курсора в окне
-            // rect.left/top - положение родителя в окне
             const x = e.clientX - rect.left - coin.getBoundingClientRect().width / 2;
             const y = e.clientY - rect.top - coin.getBoundingClientRect().height / 2;
 

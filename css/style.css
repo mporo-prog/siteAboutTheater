@@ -54,11 +54,6 @@ img{
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
-
-    /* @media (max-width: 1024px) {
-        display: flex;
-        flex-direction: row;
-    } */
 }
 .art{
     font-family: "Bebas";
@@ -434,6 +429,44 @@ img{
     }
 
 }
+.timeline{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+    justify-content: center;
+    justify-items: stretch;
+    align-items: center;
+    gap: 1vw;
+    img{
+            height: 16vw;
+    }
+}
+.Block--isDraggable:active {
+    cursor: grabbing;
+}
+.timeline-info{
+    position: relative;
+    overflow: hidden;
+    border-radius: 1vw;
+    background-color: #D17620;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3vw 1vw 3vw 1vw;
+    p{
+        color: #fff;
+        font-family: "GarPro";
+        font-size: 2vw;
+        text-align: center;
+        line-height: 100%;
+    }
+}
+.draggable-mirror {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    z-index: 1000;
+}
 
 
 
@@ -472,66 +505,49 @@ img{
     width: 13.8vw;
     right: 0;
     top: 0;
-    /* bottom: 13.1vw; */
 }
 #pieceOut7{
     width: 9.4vw;
     right: 0;
     top: 0;
-    /* bottom: 13.1vw; */
 }
 #pieceOut8{
     width: 7.9vw;
     right: 0;
     top: 0;
-    /* bottom: 13.8vw; */
 }
 #pieceOut9{
     width: 11.6vw;
     right: 0;
     top: 0;
-    /* left: 32.9vw;
-    bottom: 11.8vw; */
 }
 #pieceOut10{
     width: 5.6vw;
     right: 0;
     top: 0;
-    /* left: 45vw;
-    bottom: 11.8vw; */
 }
 #pieceOut11{
     width: 15.6vw;
     right: 0;
     top: 0;
-    /* left: 8.2vw;
-    bottom: 26.2vw; */
 }
 #pieceOut12{
     width: 12.4vw;
     right: 0;
     top: 0;
-    /* left: 24.3vw;
-    bottom: 25.5vw; */
 }
 #pieceOut13{
     width: 12.2vw;
     right: 0;
     top: 0;
-    /* left: 7.9vw;
-    bottom: 37.5vw; */
 }
 #pieceOut14{
     width: 15.9vw;
     right: 9%;
     bottom: 50%;
-    /* left: 20.6vw;
-    bottom: 37.5vw; */
 }
 #pieceOut15{
     width: 12.2vw;
     right: 23%;
     bottom: 50%;
-    /* left: 20.6vw;
-    bottom: 48.7vw; */
 }

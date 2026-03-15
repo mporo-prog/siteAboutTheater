@@ -83,92 +83,38 @@
         <img src="assets/piece13.svg" data-test="pieceOutPuzzle13" class="pieces" id="pieceOut13">
         <img src="assets/piece14.svg" data-test="pieceOutPuzzle14" class="pieces" id="pieceOut14">
         <img src="assets/piece15.svg" data-test="pieceOutPuzzle15" class="pieces" id="pieceOut15">
-        <!-- <div class="basic-systems">
-            <div>
-                <p>основные системы актёрского мастерства</p>
-            </div>
-        </div>
-        <div class="masters-of-acting">
-            <div>
-                <p>мастера актерского искусства</p>
-            </div>
-        </div> -->
         <div data-test="circles-ticket1-top" class="circles" id="circles-top"></div>
         <div data-test="circles-ticket1-bottom" class="circles" id="circles-bottom"></div>
     </div>
 
-    <style>
-
-        .timeline{
-            /* padding: 0 2vw 0 2vw; */
-            display: grid;
-            width: 100vw;
-            grid-template-columns: repeat(3, 1fr);
-            /* grid-template-rows: repeat(3, fit-content); */
-            overflow: hidden;
-            justify-content: center;
-            justify-items: stretch;
-            align-items: center;
-            gap: 1vw;
-            img{
-                    height: 16vw;
-            }
-        }
-        .Block--isDraggable:active {
-            cursor: grabbing;
-            /* touch-action: none; */
-        }
-        .timeline-info{
-            position: relative;
-            overflow: hidden;
-            border-radius: 1vw;
-            background-color: #D17620;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3vw 1vw 3vw 1vw;
-            p{
-                color: #fff;
-                font-family: "GarPro";
-                font-size: 2vw;
-                text-align: center;
-                line-height: 100%;
-            }
-        }
-        .draggable-mirror {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            /* Убедитесь, что z-index выше всех, чтобы не было мерцания */
-            z-index: 1000;
-        }
-    </style>
-
     <div class="timeline" data-test="timeline">
         <img src="assets/timelineWithColor1.svg">
-        <img src="assets/timeline3.svg" class="Block--isDraggable" data-index="3" data-test="timeline3">
-        <img src="assets/timeline2.svg" class="Block--isDraggable" data-index="2" data-test="timeline2">
-        <img src="assets/timeline5.svg" class="Block--isDraggable" data-index="6" data-test="timeline6">
+        <img src="assets/timeline3.svg" class="Block--isDraggable" data-index="3">
+        <img src="assets/timeline2.svg" class="Block--isDraggable" data-index="2">
+        <img src="assets/timeline5.svg" class="Block--isDraggable" data-index="6">
         <div class="timeline-info">
             <p>Театральные академии прошли путь от античных школ риторики и гильдий Средневековья до профессиональных консерваторий и институтов, сформировав систему подготовки актеров</p>
             <div data-test="circles-timeline-top" class="circles" id="circles-top"></div>
             <div data-test="circles-timeline-bottom" class="circles" id="circles-bottom"></div>
         </div>
-        <img src="assets/timeline8.svg" class="Block--isDraggable" data-index="9" data-test="timeline9">
-        <img src="assets/timeline4.svg" class="Block--isDraggable" data-index="4" data-test="timeline4">
-        <img src="assets/timeline6.svg" class="Block--isDraggable" data-index="7" data-test="timeline7">
-        <img src="assets/timeline7.svg" class="Block--isDraggable" data-index="8" data-test="timeline8">
+        <img src="assets/timeline8.svg" class="Block--isDraggable" data-index="9">
+        <img src="assets/timeline4.svg" class="Block--isDraggable" data-index="4">
+        <img src="assets/timeline6.svg" class="Block--isDraggable" data-index="7">
+        <img src="assets/timeline7.svg" class="Block--isDraggable" data-index="8">
 
     </div>
+
     <div class="ticket2" data-test="ticket2">
         <p class="happy-ticket">счастливый билет</p>
         <div data-test="circles-ticket2-top" class="circles" id="circles-bottom"></div>
         <div data-test="circles-ticket2-bottom" class="circles" id="circles-top"></div>
-        <div class="lottery-ticket" data-test="lottery-ticket">
+        <div class="lottery-ticket">
             <img src="assets/coin.svg" data-test="coin">
             <p>Оно предполагает создание правдоподобного образа, который вызывает у зрителя эмоциональный отклик</p>
             <div class="lottery" data-test="lottery"></div>
         </div>
     </div>
+
     <div class="masks">
         <img src="assets/mask1.svg" data-test="mask1">
         <img src="assets/mask2.svg" data-test="mask2">
@@ -177,145 +123,12 @@
         <img src="assets/mask5.svg" data-test="mask5">
         <img src="assets/mask6.svg" data-test="mask6">
     </div>
+
     <footer>
         <h2>Новикова полина<br>брицп 251</h2>
         <h2>hse art and<br>design school</h2>
         <div data-test="circles-footer" class="circles" id="circles-top"></div>
     </footer>
-
-
-
-
-    <!-- <style>
-        .GridLayout .BlockLayout--typeGrid {
-            display: grid;
-            grid-template-rows: repeat(5, 1fr);
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-areas:
-                "a a a a a"
-                "b b c c c"
-                "d d c c c"
-                "d d e e e"
-                "f f f g g";
-        }
-
-        @media screen and (min-width: 768px) {
-            .GridLayout .BlockLayout--typeGrid {
-                grid-template-rows: repeat(6, 3fr);
-                /* Предположим, rows(3) это 3fr */
-                grid-template-columns: repeat(8, 1fr);
-                grid-template-areas:
-                    "a a a a b b b b"
-                    "a a a a d d d d"
-                    "c c c c d d d d"
-                    "e e e e e e e e"
-                    "f f f g g g g g"
-                    "f f f g g g g g";
-            }
-        }
-
-        @media screen and (min-width: 1024px) {
-            .GridLayout .BlockLayout--typeGrid {
-                grid-template-rows: repeat(6, 4fr);
-                /* Предположим, rows(4) это 4fr */
-            }
-        }
-
-        .GridLayout .BlockWrapper:nth-child(1) {
-            grid-area: a;
-        }
-
-        .GridLayout .BlockWrapper:nth-child(2) {
-            grid-area: b;
-        }
-
-        .GridLayout .BlockWrapper:nth-child(3) {
-            grid-area: c;
-        }
-
-        .GridLayout .BlockWrapper:nth-child(4) {
-            grid-area: d;
-        }
-
-        .GridLayout .BlockWrapper:nth-child(5) {
-            grid-area: e;
-        }
-
-        .GridLayout .BlockWrapper:nth-child(6) {
-            grid-area: f;
-        }
-
-        .GridLayout .BlockWrapper:nth-child(7) {
-            grid-area: g;
-        }
-
-        /* Класс, который библиотека вешает на оригинальный элемент во время переноса */
-        .draggable-source--is-dragging {
-            opacity: 0.5;
-        }
-
-        /* Класс для "зеркала" (то, что летает под мышкой) */
-        .draggable-mirror {
-            z-index: 10;
-            background: white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            pointer-events: none;
-            /* Важно, чтобы не мешало кликам */
-        }
-
-        /* Стили для самих блоков, чтобы их было видно */
-        .block {
-            border: 1px solid #ccc;
-            padding: 20px;
-            background: #f9f9f9;
-            height: 100%;
-            cursor: grab;
-        }
-
-        .Block--isDraggable:active {
-            cursor: grabbing;
-        }
-    </style>
-    <section id="grid-section" class="grid-section">
-        <article class="GridLayout">
-            Убедитесь, что селектор совпадает с JS
-            <div class="BlockLayout BlockLayout--typeGrid">
-
-                Добавил класс .Block--isDraggable тем, у кого draggable="true"
-                <div class="BlockWrapper">
-                    <div class="block Block--isDraggable" data-index="1">Блок 1</div>
-                </div>
-
-                <div class="BlockWrapper">
-                    <div class="block Block--isDraggable" data-index="2">Блок 2</div>
-                </div>
-
-                <div class="BlockWrapper">
-                    <div class="block" data-index="3">Блок 3 (статичный)</div>
-                </div>
-
-                <div class="BlockWrapper">
-                    <div class="block Block--isDraggable" data-index="4">Блок 4</div>
-                </div>
-
-                <div class="BlockWrapper">
-                    <div class="block Block--isDraggable" data-index="5">Блок 5</div>
-                </div>
-
-                <div class="BlockWrapper">
-                    <div class="block Block--isDraggable" data-index="6">Блок 6</div>
-                </div>
-
-                <div class="BlockWrapper">
-                    <div class="block" data-index="7">Блок 7 (статичный)</div>
-                </div>
-
-            </div>
-        </article>
-    </section>
-
-
-    <img src="assets/timelineWithColor2.svg" alt=""> -->
 
 </body>
 
