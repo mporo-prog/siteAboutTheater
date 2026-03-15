@@ -1,69 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мастерство в действии</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="script.js" defer></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.bundle.js"></script>
+    <script src="swap.js"></script>
 </head>
+
 <body>
-    <nav>
+    <nav data-test="nav">
         <h1>Актёрское мастерство — это многогранное искусство</h1>
-        <div data-test="circles-nav" class="circles" id="circles-bottom"></div> 
+        <div data-test="circles-nav" class="circles" id="circles-bottom"></div>
     </nav>
-    <div class="div-art">
-         <p class="art">искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство</p>
-    </div>
     <div class="frames-painting-strings" data-test="frames-painting-strings">
-        <div class="div-Bigart" data-test="div-Bigart">
-            <p class="art">искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство</p>
-        </div>
         <div class="frames" data-test="frames">
-            <div class="adaptive-for-phones">
-                <div class="frame" data-test="frame-painting-without-color1">
-                    <img src="assets/paintingColor1.svg" class="img-painting-frame" data-test="frame-painting1">
-                    <img src="assets/frame1.svg" class="img-frame" data-test="frame1">
-                </div>
-                <div class="frame" data-test="frame-painting-without-color2">
-                    <img src="assets/painting2.svg" class="img-painting-frame" data-test="frame-painting2">
-                    <img src="assets/frame2.svg" class="img-frame" data-test="frame2">
-                </div>
+            <div class="frame" data-test="frame-painting-without-color1">
+                <img src="assets/paintingColor1.svg" class="img-painting-frame" data-test="frame-painting1">
+                <img src="assets/frame1.svg" class="img-frame" data-test="frame1">
             </div>
-            <div class="adaptive-for-phones">
-                <div class="frame" data-test="frame-painting-without-color3">
-                    <img src="assets/painting3.svg" class="img-painting-frame" data-test="frame-painting3">
-                    <img src="assets/frame3.svg" class="img-frame" data-test="frame3">
-                </div>
-                <div class="frame" data-test="frame-painting-without-color4">
-                    <img src="assets/painting4.svg" class="img-painting-frame" data-test="frame-painting4">
-                    <img src="assets/frame4.svg" class="img-frame" data-test="frame4">
-                </div>
+            <div class="frame" data-test="frame-painting-without-color2">
+                <img src="assets/painting2.svg" class="img-painting-frame" data-test="frame-painting2">
+                <img src="assets/frame2.svg" class="img-frame" data-test="frame2">
+            </div>
+            <div class="frame" data-test="frame-painting-without-color3">
+                <img src="assets/painting3.svg" class="img-painting-frame" data-test="frame-painting3">
+                <img src="assets/frame3.svg" class="img-frame" data-test="frame3">
+            </div>
+            <div class="frame" data-test="frame-painting-without-color4">
+                <img src="assets/painting4.svg" class="img-painting-frame" data-test="frame-painting4">
+                <img src="assets/frame4.svg" class="img-frame" data-test="frame4">
             </div>
         </div>
         <div class="frames" data-test="frames-paintings">
-            <div class="adaptive-for-phones">
-                <img src="assets/painting3.svg" class="img-painting" data-test="painting3">
-                <img src="assets/painting2.svg" class="img-painting" data-test="painting2">
-            </div>
-            <div class="adaptive-for-phones">
-                <img src="assets/painting4.svg" class="img-painting" data-test="painting4">
-                <img src="assets/painting1.svg" class="img-painting" data-test="painting1">
-            </div>
+            <img src="assets/painting3.svg" class="img-painting" data-test="painting3">
+            <img src="assets/painting2.svg" class="img-painting" data-test="painting2">
+            <img src="assets/painting4.svg" class="img-painting" data-test="painting4">
+            <img src="assets/painting1.svg" class="img-painting" data-test="painting1">
         </div>
         <div class="div-acting" data-test="div-acting">
             <div data-test="div-acting-top" class="circles" id="circles-top"></div>
             <div data-test="div-acting-bottom" class="circles" id="circles-bottom"></div>
-            <p class="acting" data-test="acting">Оно предполагает создание правдоподобного, живого образа, который вызывает у зрителя эмоциональный отклик и веру в происходящее на сцене</p>
+            <p>Оно предполагает создание правдоподобного, живого образа, который вызывает у зрителя эмоциональный отклик
+                и веру в происходящее на сцене</p>
         </div>
     </div>
-    <div class="div-art">
-        <p class="art">искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство искусство</p>
-    </div>
-    <div class="ticket1">
-        <div class="basic-systems">
+    <div class="ticket1" data-test="ticket1">
+        <div class="puzzle">
+            <img src="assets/piece1.svg" data-test="pieceInPuzzle1" class="pieces" id="piece1">
+            <img src="assets/piece2.svg" data-test="pieceInPuzzle2" class="pieces" id="piece2">
+            <img src="assets/piece3.svg" data-test="pieceInPuzzle3" class="pieces" id="piece3">
+            <img src="assets/piece4.svg" data-test="pieceInPuzzle4" class="pieces" id="piece4">
+            <img src="assets/piece5.svg" data-test="pieceInPuzzle5" class="pieces" id="piece5">
+            <img src="assets/piece6.svg" data-test="pieceInPuzzle6" class="pieces" id="piece6">
+            <img src="assets/piece7.svg" data-test="pieceInPuzzle7" class="pieces" id="piece7">
+            <img src="assets/piece8.svg" data-test="pieceInPuzzle8" class="pieces" id="piece8">
+            <img src="assets/piece9.svg" data-test="pieceInPuzzle9" class="pieces" id="piece9">
+            <img src="assets/piece10.svg" data-test="pieceInPuzzle10" class="pieces" id="piece10">
+            <img src="assets/piece11.svg" data-test="pieceInPuzzle11" class="pieces" id="piece11">
+            <img src="assets/piece12.svg" data-test="pieceInPuzzle12" class="pieces" id="piece12">
+            <img src="assets/piece13.svg" data-test="pieceInPuzzle13" class="pieces" id="piece13">
+            <img src="assets/piece14.svg" data-test="pieceInPuzzle14" class="pieces" id="piece14">
+            <img src="assets/piece15.svg" data-test="pieceInPuzzle15" class="pieces" id="piece15">
+            <img src="assets/puzzleShape.svg">
+        </div>
+        <img src="assets/piece1.svg" data-test="pieceOutPuzzle1" class="pieces" id="pieceOut1">
+        <img src="assets/piece2.svg" data-test="pieceOutPuzzle2" class="pieces" id="pieceOut2">
+        <img src="assets/piece3.svg" data-test="pieceOutPuzzle3" class="pieces" id="pieceOut3">
+        <img src="assets/piece4.svg" data-test="pieceOutPuzzle4" class="pieces" id="pieceOut4">
+        <img src="assets/piece5.svg" data-test="pieceOutPuzzle5" class="pieces" id="pieceOut5">
+        <img src="assets/piece6.svg" data-test="pieceOutPuzzle6" class="pieces" id="pieceOut6">
+        <img src="assets/piece7.svg" data-test="pieceOutPuzzle7" class="pieces" id="pieceOut7">
+        <img src="assets/piece8.svg" data-test="pieceOutPuzzle8" class="pieces" id="pieceOut8">
+        <img src="assets/piece9.svg" data-test="pieceOutPuzzle9" class="pieces" id="pieceOut9">
+        <img src="assets/piece10.svg" data-test="pieceOutPuzzle10" class="pieces" id="pieceOut10">
+        <img src="assets/piece11.svg" data-test="pieceOutPuzzle11" class="pieces" id="pieceOut11">
+        <img src="assets/piece12.svg" data-test="pieceOutPuzzle12" class="pieces" id="pieceOut12">
+        <img src="assets/piece13.svg" data-test="pieceOutPuzzle13" class="pieces" id="pieceOut13">
+        <img src="assets/piece14.svg" data-test="pieceOutPuzzle14" class="pieces" id="pieceOut14">
+        <img src="assets/piece15.svg" data-test="pieceOutPuzzle15" class="pieces" id="pieceOut15">
+        <!-- <div class="basic-systems">
             <div>
                 <p>основные системы актёрского мастерства</p>
             </div>
@@ -72,25 +92,231 @@
             <div>
                 <p>мастера актерского искусства</p>
             </div>
-        </div>
+        </div> -->
         <div data-test="circles-ticket1-top" class="circles" id="circles-top"></div>
         <div data-test="circles-ticket1-bottom" class="circles" id="circles-bottom"></div>
     </div>
-    <div></div>
-    <div class="ticket2">
+
+    <style>
+
+        .timeline{
+            /* padding: 0 2vw 0 2vw; */
+            display: grid;
+            width: 100vw;
+            grid-template-columns: repeat(3, 1fr);
+            /* grid-template-rows: repeat(3, fit-content); */
+            overflow: hidden;
+            justify-content: center;
+            justify-items: stretch;
+            align-items: center;
+            gap: 1vw;
+            img{
+                    height: 16vw;
+            }
+        }
+        .Block--isDraggable:active {
+            cursor: grabbing;
+            /* touch-action: none; */
+        }
+        .timeline-info{
+            position: relative;
+            overflow: hidden;
+            border-radius: 1vw;
+            background-color: #D17620;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3vw 1vw 3vw 1vw;
+            p{
+                color: #fff;
+                font-family: "GarPro";
+                font-size: 2vw;
+                text-align: center;
+                line-height: 100%;
+            }
+        }
+        .draggable-mirror {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            /* Убедитесь, что z-index выше всех, чтобы не было мерцания */
+            z-index: 1000;
+        }
+    </style>
+
+    <div class="timeline" data-test="timeline">
+        <img src="assets/timelineWithColor1.svg">
+        <img src="assets/timeline3.svg" class="Block--isDraggable" data-index="3" data-test="timeline3">
+        <img src="assets/timeline2.svg" class="Block--isDraggable" data-index="2" data-test="timeline2">
+        <img src="assets/timeline5.svg" class="Block--isDraggable" data-index="6" data-test="timeline6">
+        <div class="timeline-info">
+            <p>Театральные академии прошли путь от античных школ риторики и гильдий Средневековья до профессиональных консерваторий и институтов, сформировав систему подготовки актеров</p>
+            <div data-test="circles-timeline-top" class="circles" id="circles-top"></div>
+            <div data-test="circles-timeline-bottom" class="circles" id="circles-bottom"></div>
+        </div>
+        <img src="assets/timeline8.svg" class="Block--isDraggable" data-index="9" data-test="timeline9">
+        <img src="assets/timeline4.svg" class="Block--isDraggable" data-index="4" data-test="timeline4">
+        <img src="assets/timeline6.svg" class="Block--isDraggable" data-index="7" data-test="timeline7">
+        <img src="assets/timeline7.svg" class="Block--isDraggable" data-index="8" data-test="timeline8">
+
+    </div>
+    <div class="ticket2" data-test="ticket2">
         <p class="happy-ticket">счастливый билет</p>
         <div data-test="circles-ticket2-top" class="circles" id="circles-bottom"></div>
         <div data-test="circles-ticket2-bottom" class="circles" id="circles-top"></div>
-        <div class="lottery-ticket">
+        <div class="lottery-ticket" data-test="lottery-ticket">
+            <img src="assets/coin.svg" data-test="coin">
             <p>Оно предполагает создание правдоподобного образа, который вызывает у зрителя эмоциональный отклик</p>
-            <div class="lottery"></div>
+            <div class="lottery" data-test="lottery"></div>
         </div>
     </div>
-    <div></div>
+    <div class="masks">
+        <img src="assets/mask1.svg" data-test="mask1">
+        <img src="assets/mask2.svg" data-test="mask2">
+        <img src="assets/mask3.svg" data-test="mask3">
+        <img src="assets/mask4.svg" data-test="mask4">
+        <img src="assets/mask5.svg" data-test="mask5">
+        <img src="assets/mask6.svg" data-test="mask6">
+    </div>
     <footer>
         <h2>Новикова полина<br>брицп 251</h2>
         <h2>hse art and<br>design school</h2>
-        <div data-test="circles-footer" class="circles" id="circles-top"></div> 
+        <div data-test="circles-footer" class="circles" id="circles-top"></div>
     </footer>
+
+
+
+
+    <!-- <style>
+        .GridLayout .BlockLayout--typeGrid {
+            display: grid;
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-areas:
+                "a a a a a"
+                "b b c c c"
+                "d d c c c"
+                "d d e e e"
+                "f f f g g";
+        }
+
+        @media screen and (min-width: 768px) {
+            .GridLayout .BlockLayout--typeGrid {
+                grid-template-rows: repeat(6, 3fr);
+                /* Предположим, rows(3) это 3fr */
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-areas:
+                    "a a a a b b b b"
+                    "a a a a d d d d"
+                    "c c c c d d d d"
+                    "e e e e e e e e"
+                    "f f f g g g g g"
+                    "f f f g g g g g";
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .GridLayout .BlockLayout--typeGrid {
+                grid-template-rows: repeat(6, 4fr);
+                /* Предположим, rows(4) это 4fr */
+            }
+        }
+
+        .GridLayout .BlockWrapper:nth-child(1) {
+            grid-area: a;
+        }
+
+        .GridLayout .BlockWrapper:nth-child(2) {
+            grid-area: b;
+        }
+
+        .GridLayout .BlockWrapper:nth-child(3) {
+            grid-area: c;
+        }
+
+        .GridLayout .BlockWrapper:nth-child(4) {
+            grid-area: d;
+        }
+
+        .GridLayout .BlockWrapper:nth-child(5) {
+            grid-area: e;
+        }
+
+        .GridLayout .BlockWrapper:nth-child(6) {
+            grid-area: f;
+        }
+
+        .GridLayout .BlockWrapper:nth-child(7) {
+            grid-area: g;
+        }
+
+        /* Класс, который библиотека вешает на оригинальный элемент во время переноса */
+        .draggable-source--is-dragging {
+            opacity: 0.5;
+        }
+
+        /* Класс для "зеркала" (то, что летает под мышкой) */
+        .draggable-mirror {
+            z-index: 10;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            /* Важно, чтобы не мешало кликам */
+        }
+
+        /* Стили для самих блоков, чтобы их было видно */
+        .block {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #f9f9f9;
+            height: 100%;
+            cursor: grab;
+        }
+
+        .Block--isDraggable:active {
+            cursor: grabbing;
+        }
+    </style>
+    <section id="grid-section" class="grid-section">
+        <article class="GridLayout">
+            Убедитесь, что селектор совпадает с JS
+            <div class="BlockLayout BlockLayout--typeGrid">
+
+                Добавил класс .Block--isDraggable тем, у кого draggable="true"
+                <div class="BlockWrapper">
+                    <div class="block Block--isDraggable" data-index="1">Блок 1</div>
+                </div>
+
+                <div class="BlockWrapper">
+                    <div class="block Block--isDraggable" data-index="2">Блок 2</div>
+                </div>
+
+                <div class="BlockWrapper">
+                    <div class="block" data-index="3">Блок 3 (статичный)</div>
+                </div>
+
+                <div class="BlockWrapper">
+                    <div class="block Block--isDraggable" data-index="4">Блок 4</div>
+                </div>
+
+                <div class="BlockWrapper">
+                    <div class="block Block--isDraggable" data-index="5">Блок 5</div>
+                </div>
+
+                <div class="BlockWrapper">
+                    <div class="block Block--isDraggable" data-index="6">Блок 6</div>
+                </div>
+
+                <div class="BlockWrapper">
+                    <div class="block" data-index="7">Блок 7 (статичный)</div>
+                </div>
+
+            </div>
+        </article>
+    </section>
+
+
+    <img src="assets/timelineWithColor2.svg" alt=""> -->
+
 </body>
+
 </html>

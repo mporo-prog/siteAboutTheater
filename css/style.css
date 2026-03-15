@@ -5,7 +5,8 @@ body{
     background-color: black;
     display: flex;
     flex-direction: column;
-    /* gap: 10vw; */
+    gap: 10vw;
+    overflow-x: hidden;
 }
 nav{
     position: relative;
@@ -48,32 +49,20 @@ img{
     user-select: none;
     -webkit-user-drag: none;
 }
-.div-art{
+.adaptivePhonePaintings{
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    overflow: hidden;
-    z-index: 2;
-}
-.div-Bigart{
-    top: 37%;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    z-index: 1;
-    display: none;
-    .art{
-        font-size: 15vw;
-        @media (max-width: 1024px) {
-            font-size: 27vw;
-        }
-    }
-    @media (max-width: 1024px) {
-        top: 20%;
-    }
+    justify-content: space-around;
+
+    /* @media (max-width: 1024px) {
+        display: flex;
+        flex-direction: row;
+    } */
 }
 .art{
     font-family: "Bebas";
-    font-size: 2vw;
+    font-size: 3vw;
     line-height: 100%;
     letter-spacing: -4%;
     color: #fff;
@@ -106,10 +95,9 @@ img{
     flex-direction: column;
     width: 100%;
     height: 36vw;
-    touch-action: none;
     gap: 2vw;
     padding: 0 2vw 0 2vw; 
-    /* justify-content: center; */
+    align-items: center;
     min-height: fit-content;
     @media (max-width: 1024px) {
         height: 136vw;
@@ -140,8 +128,9 @@ img{
 .img-painting{
     width: 20vw;
     height: auto;
+    touch-action: none;
     @media (max-width: 1024px){
-        width: 40vw;
+        width: 39vw;
     }
 }
 .img-painting-frame{
@@ -149,7 +138,7 @@ img{
     height: auto;
     display: none;
     @media (max-width: 1024px){
-        width: 40vw;
+        width: 39vw;
     }
 }
 .img-frame{
@@ -173,36 +162,127 @@ img{
     }
 }
 .div-acting{
+    position: relative;
     display: none;
     justify-content: center;
-    align-items: flex-end;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 2vw;
-    padding: 2vw;
-    @media (max-width: 1024px) {
-        align-items: center;
-        background-color: #D17620;
+    align-items: center;
+    width: 70%;
+    height: fit-content;
+    background-color: #D17620;
+    border-radius: 1vw;
+    padding: 5vw 2vw 5vw 2vw;
+    p{
+        font-family: "GarPro";
+        font-size: 2vw;
+        color: #fff;
+        text-align: center;
+        line-height: 120%;
+        letter-spacing: -4%;
     }
-}
-.acting{
-    font-family: "GarPro";
-    color: #fff;
-    font-size: 2vw;
-    text-align: center;
-    line-height: 120%;
     @media (max-width: 1024px) {
-        font-size: 6vw;
+        width: 100%;
+        height: 100%;
+        padding: 5vw 4vw 5vw 4vw;
+        p{
+            font-size: 6vw;
+        }
     }
 }
 .ticket1{
+    overflow: hidden;
     width: 100%;
-    height: 30vw;
     background-color: #D17620;
     position: relative;
     border-radius: 2vw;
     overflow: hidden;
+}
+.puzzle{
+    position: relative;
+    width: 53.6vw;
+    height: 72vw;
+    img{
+        width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: -1px;
+    }
+    .pieces{
+        z-index: 0;
+        touch-action: auto;
+    }
+    #piece1{
+        width: 9.9vw;
+    }
+    #piece2{
+        width: 13.3vw;
+        left: 10.5vw;
+    }
+    #piece3{
+        width: 7.9vw;
+        left: 24.4vw;
+    }
+    #piece4{
+        width: 11.6vw;
+        left: 32.9vw;
+    }
+    #piece5{
+        width: 8.6vw;
+        left: 45vw;
+    }
+    #piece6{
+        width: 13.8vw;
+        bottom: 13.1vw;
+    }
+    #piece7{
+        width: 9.4vw;
+        left: 14.4vw;
+        bottom: 13.1vw;
+    }
+    #piece8{
+        width: 7.9vw;
+        left: 24.4vw;
+        bottom: 13.8vw;
+    }
+    #piece9{
+        width: 11.6vw;
+        left: 32.9vw;
+        bottom: 11.8vw;
+    }
+    #piece10{
+        width: 5.6vw;
+        left: 45vw;
+        bottom: 11.8vw;
+    }
+    #piece11{
+        width: 15.6vw;
+        left: 8.2vw;
+        bottom: 26.2vw;
+    }
+    #piece12{
+        width: 12.4vw;
+        left: 24.3vw;
+        bottom: 25.5vw;
+    }
+    #piece13{
+        width: 12.1vw;
+        left: 8vw;
+        bottom: 37.6vw;
+    }
+    #piece14{
+        width: 15.9vw;
+        left: 20.6vw;
+        bottom: 37.5vw;
+    }
+    #piece15{
+        width: 12.2vw;
+        left: 20.6vw;
+        bottom: 48.7vw;
+    }
+}
+.pieces{
+    position: absolute;
+    z-index: 102;
+    touch-action: none;
 }
 .basic-systems{
     position: absolute;
@@ -286,6 +366,10 @@ img{
     color: #fff;
     font-size: 9vw;
     line-height: 90%;
+    @media (max-width: 1024px) {
+        font-size: 15vw;
+        text-align: center;
+    }
 }
 .lottery-ticket{
     position: relative;
@@ -298,34 +382,58 @@ img{
     border-radius: 1vw;
     border: #fff 1vw solid;
     padding: 2vw;
+
+    img{
+        position: absolute;
+        right: -2vw;
+        top: -4vw;
+        width: 12vw;
+        touch-action: none;
+        z-index: 200;
+        display: none;
+        @media (max-width: 1024px) {
+            display: inline;
+        }
+    }
     p{
         font-family: "GarPro";
         line-height: 120%;
         color: #fff;
         font-size: 2vw;
         text-align: center;
+        @media (max-width: 1024px) {
+            font-size: 4vw;
+        }
+    }
+    @media (max-width: 1024px) {
+        padding: 3vw;
     }
 }
 .lottery{
-    width: 98%;
-    height: 78%;
-    background-color: #fff;
+    width: 99%;
+    height: 89%;
     position: absolute;
     border-radius: 0.2vw;
+    z-index: 100;
+    touch-action: none;
+    overflow: hidden;
+    @media (max-width: 1024px) {
+        height: 90%;
+        width: 98%;
+    }
 }
-
-
-
-/* .adaptivePhonePaintings{
+.masks{
+    width: 100%;
+    height: 14vw;
     display: flex;
     flex-direction: row;
-    width: 100%;
-
-    @media (max-width: 1024px) {
-        display: flex;
-        flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    img{
+        width: 12vw;
     }
-} */
+
+}
 
 
 
@@ -334,4 +442,96 @@ img{
 }
 #circles-top{
     top: -2vw;
+}
+#pieceOut1{
+    width: 9.9vw;
+    right: 0;
+    bottom: 50%;
+}
+#pieceOut2{
+    width: 13.3vw;
+    right: 0;
+    top: 0;
+}
+#pieceOut3{
+    width: 7.9vw;
+    right: 0;
+    top: 0;
+}
+#pieceOut4{
+    width: 11.6vw;
+   right: 0;
+   top: 0;
+}
+#pieceOut5{
+    width: 8.6vw;
+    right: 0;
+    top: 0;
+}
+#pieceOut6{
+    width: 13.8vw;
+    right: 0;
+    top: 0;
+    /* bottom: 13.1vw; */
+}
+#pieceOut7{
+    width: 9.4vw;
+    right: 0;
+    top: 0;
+    /* bottom: 13.1vw; */
+}
+#pieceOut8{
+    width: 7.9vw;
+    right: 0;
+    top: 0;
+    /* bottom: 13.8vw; */
+}
+#pieceOut9{
+    width: 11.6vw;
+    right: 0;
+    top: 0;
+    /* left: 32.9vw;
+    bottom: 11.8vw; */
+}
+#pieceOut10{
+    width: 5.6vw;
+    right: 0;
+    top: 0;
+    /* left: 45vw;
+    bottom: 11.8vw; */
+}
+#pieceOut11{
+    width: 15.6vw;
+    right: 0;
+    top: 0;
+    /* left: 8.2vw;
+    bottom: 26.2vw; */
+}
+#pieceOut12{
+    width: 12.4vw;
+    right: 0;
+    top: 0;
+    /* left: 24.3vw;
+    bottom: 25.5vw; */
+}
+#pieceOut13{
+    width: 12.2vw;
+    right: 0;
+    top: 0;
+    /* left: 7.9vw;
+    bottom: 37.5vw; */
+}
+#pieceOut14{
+    width: 15.9vw;
+    right: 9%;
+    bottom: 50%;
+    /* left: 20.6vw;
+    bottom: 37.5vw; */
+}
+#pieceOut15{
+    width: 12.2vw;
+    right: 23%;
+    bottom: 50%;
+    /* left: 20.6vw;
+    bottom: 48.7vw; */
 }
