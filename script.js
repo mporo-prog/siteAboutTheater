@@ -65,12 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let ticket2 = document.querySelector('[data-test="ticket2"]')
     let lottery = document.querySelector('[data-test="lottery"]');
     let coin = document.querySelector('[data-test="coin"]')
-    let mask1 = document.querySelector('[data-test="mask1"]')
-    let mask2 = document.querySelector('[data-test="mask2"]')
-    let mask3 = document.querySelector('[data-test="mask3"]')
-    let mask4 = document.querySelector('[data-test="mask4"]')
-    let mask5 = document.querySelector('[data-test="mask5"]')
-    let mask6 = document.querySelector('[data-test="mask6"]')
+
+    let masksInfo = document.querySelector('[data-test="masks-info"]')
+    let masks = document.querySelector('[data-test="masks"]')
+
+    let countMask = 0
+
+
     let draggable = false
     let count = 0
     let countPieces = 0
@@ -392,24 +393,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 dynamicWeight = lottery.getBoundingClientRect().width * 0.06; 
         }
     })
-    
-    mask1.addEventListener("click", () => {
-        mask1.style.display = "none"
-    })
-    mask2.addEventListener("click", () => {
-        mask2.style.display = "none"
-    })
-    mask3.addEventListener("click", () => {
-        mask3.style.display = "none"
-    })
-    mask4.addEventListener("click", () => {
-        mask4.style.display = "none"
-    })
-    mask5.addEventListener("click", () => {
-        mask5.style.display = "none"
-    })
-    mask6.addEventListener("click", () => {
-        mask6.style.display = "none"
+
+    masks.addEventListener("click", (e) => {
+        countMask++
+        e.target.style.display = "none" 
+        if(countMask == 6){
+            masksInfo.style.display = "flex"
+        }
     })
 
     ticket2.addEventListener("pointermove", () => {

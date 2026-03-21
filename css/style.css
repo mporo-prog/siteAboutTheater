@@ -49,6 +49,9 @@ img{
     user-select: none;
     -webkit-user-drag: none;
 }
+main{
+    display: none;
+}
 .adaptivePhonePaintings{
     display: flex;
     flex-direction: row;
@@ -91,7 +94,7 @@ img{
     width: 100%;
     height: 36vw;
     gap: 2vw;
-    padding: 0 2vw 0 2vw; 
+    /* padding: 0 2vw 0 2vw;  */
     align-items: center;
     min-height: fit-content;
     @media (max-width: 1024px) {
@@ -104,7 +107,7 @@ img{
     height: fit-content;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     z-index: 3;
     .adaptive-for-phones{
         display: flex;
@@ -473,21 +476,77 @@ img{
     box-shadow: none !important;
     z-index: 1000;
 }
+.masks-and-line{
+    display: flex;
+    flex-direction: column;
+}
+.line{
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+    /* gap: 2%; */
+    width: 100%;
+    /* width: fit-content; */
+    height: fit-content;
+    align-items: center;
+    justify-content: space-evenly;
+    div{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+            position: absolute;
+            font-family: "Bebas";
+            word-spacing: 15%;
+            color: #000;
+            text-align: center;
+            line-height: 100%;
+            font-size: 1.7vw;
+            z-index: 5;
+        }
+    }
+    img{
+        display: flex;
+        width: 12vw;
+        /* a; */
+        /* position: absolute; */
+    }
+}
 .masks{
     width: 100%;
-    height: fit-content;
+    position: relative;
+    height: 20vw;
+    min-height: fit-content;
     padding: 2vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     img{
-        width: 14vw;
+        width: 13vw;
         @media (max-width: 1024px) {
             width: 16vw;
         }
         @media (max-width: 480px) {
             width: 19vw;
+        }
+    }
+    .masks-info{
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        padding: 0 10% 0 10%;
+        position: absolute;
+        display: none;
+        p{
+            font-family: "GarPro";
+            font-size: 3vw;
+            line-height: 100%;
+            text-align: center;
+            color: #fff;
         }
     }
 }
