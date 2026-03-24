@@ -134,7 +134,8 @@ main{
 .img-painting-frame{
     width: 20vw;
     height: auto;
-    display: none;
+    z-index: 0;
+    /* display: none; */
     @media (max-width: 1024px){
         width: 39vw;
     }
@@ -481,6 +482,7 @@ main{
     flex-direction: column;
 }
 .line{
+    opacity: 20%;
     position: relative;
     display: flex;
     overflow-x: hidden;
@@ -509,8 +511,6 @@ main{
     img{
         display: flex;
         width: 12vw;
-        /* a; */
-        /* position: absolute; */
     }
 }
 .masks{
@@ -569,78 +569,95 @@ main{
 #circles-top{
     top: -2vw;
 }
+
+
 #pieceOut1{
     width: 9.9vw;
-    right: 0;
-    bottom: 50%;
+    right: 12%;
+    bottom: 54%;
+    z-index: 0;
 }
 #pieceOut2{
     width: 13.3vw;
-    right: 0;
-    top: 0;
+    right: 27%;
+    bottom: 24%;
+    z-index: 0;
 }
 #pieceOut3{
     width: 7.9vw;
-    right: 0;
-    top: 0;
+    right: 18%;
+    bottom: 18%;
+    z-index: 0;
 }
 #pieceOut4{
     width: 11.6vw;
-   right: 0;
-   top: 0;
+   right: 7%;
+   bottom: 20%;
+   z-index: 0;
 }
 #pieceOut5{
     width: 8.6vw;
-    right: 0;
-    top: 0;
+    right: 24%;
+    bottom: 20%;
+    z-index: 0;
 }
 #pieceOut6{
     width: 13.8vw;
-    right: 0;
-    top: 0;
+    right: 9%;
+    bottom: 30%;
+    z-index: 0;
 }
 #pieceOut7{
     width: 9.4vw;
-    right: 0;
-    top: 0;
+    right: 21%;
+    bottom: 28%;
+    z-index: 0;
 }
 #pieceOut8{
     width: 7.9vw;
-    right: 0;
-    top: 0;
+    right: 4%;
+    bottom: 32%;
+    z-index: 0;
 }
 #pieceOut9{
     width: 11.6vw;
-    right: 0;
-    top: 0;
+    right: 10%;
+    bottom: 40%;
+    z-index: 0;
 }
 #pieceOut10{
     width: 5.6vw;
-    right: 0;
-    top: 0;
+    right: 28%;
+    bottom: 40%;
+    z-index: 0;
 }
 #pieceOut11{
     width: 15.6vw;
-    right: 0;
-    top: 0;
+    right: 20%;
+    bottom: 43%;
+    z-index: 0;
 }
 #pieceOut12{
     width: 12.4vw;
-    right: 0;
-    top: 0;
+    right: 30%;
+    bottom: 40%;
+    z-index: 0;
 }
 #pieceOut13{
     width: 12.2vw;
-    right: 0;
-    top: 0;
+    right: 5%;
+    bottom: 46%;
+    z-index: 0;
 }
 #pieceOut14{
     width: 15.9vw;
-    right: 9%;
-    bottom: 50%;
+    right: 19%;
+    bottom: 56%;
+    z-index: 0;
 }
 #pieceOut15{
     width: 12.2vw;
-    right: 23%;
-    bottom: 50%;
+    right: 27%;
+    bottom: 54%;
+    z-index: 0;
 }

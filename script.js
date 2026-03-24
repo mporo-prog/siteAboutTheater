@@ -16,10 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let painting2 = document.querySelector('[data-test="painting2"]')
     let painting3 = document.querySelector('[data-test="painting3"]')
     let painting4 = document.querySelector('[data-test="painting4"]')
-    let frame1 = document.querySelector('[data-test="frame1"]')
-    let frame2 = document.querySelector('[data-test="frame2"]')
-    let frame3 = document.querySelector('[data-test="frame3"]')
-    let frame4 = document.querySelector('[data-test="frame4"]')
     let framePainting1 = document.querySelector('[data-test="frame-painting1"]')
     let framePainting2 = document.querySelector('[data-test="frame-painting2"]')
     let framePainting3 = document.querySelector('[data-test="frame-painting3"]')
@@ -68,6 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let masksInfo = document.querySelector('[data-test="masks-info"]')
     let masks = document.querySelector('[data-test="masks"]')
+
+    const lines = document.querySelectorAll('[data-test="line"]')
+
 
     let countMask = 0
 
@@ -157,17 +156,18 @@ document.addEventListener("DOMContentLoaded", () => {
         CreateBlob(timelineBottom)
     }
 
-    function TouchParent(frame, painting, framePainting) {
-        let parentYTop = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
-        let parentYBottom = Math.floor((frame.getBoundingClientRect().top + frame.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
-        let parentXLeft = Math.floor((frame.getBoundingClientRect().left + frame.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
-        let parentXRight = Math.floor((frame.getBoundingClientRect().left + frame.getBoundingClientRect().right) / 2 + window.innerWidth * 0.02)
+
+    function TouchParent(painting, framePainting) {
+        let parentYTop = Math.floor((framePainting.getBoundingClientRect().top + framePainting.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
+        let parentYBottom = Math.floor((framePainting.getBoundingClientRect().top + framePainting.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
+        let parentXLeft = Math.floor((framePainting.getBoundingClientRect().left + framePainting.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
+        let parentXRight = Math.floor((framePainting.getBoundingClientRect().left + framePainting.getBoundingClientRect().right) / 2 + window.innerWidth * 0.02)
         let childY = Math.floor((painting.getBoundingClientRect().top + painting.getBoundingClientRect().bottom) / 2)
         let childX = Math.floor((painting.getBoundingClientRect().left + painting.getBoundingClientRect().right) / 2)
 
         if ((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)) {
             painting.style.display = 'none'
-            framePainting.style.display = 'inline'
+            framePainting.style.zIndex = 100
             count++
             CheckPaintings()
         }
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function PointerWithPaintings(frame, painting, framePainting) {
+    function PointerWithPaintings(painting, framePainting) {
         painting.addEventListener('pointerdown', (e) => {
             painting.style.cursor = "grabbing"
             painting.style.position = 'absolute'
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         painting.addEventListener('pointermove', (e) => {
             painting.style.cursor = "grab"
-            TouchParent(frame, painting, framePainting)
+            TouchParent(painting, framePainting)
             if (draggable) {
                 painting.style.cursor = "grabbing"
 
@@ -236,12 +236,14 @@ document.addEventListener("DOMContentLoaded", () => {
             
             pieceOutPuzzle.style.left = `${e.clientX - pieceOutPuzzle.getBoundingClientRect().width / 2}px`
             pieceOutPuzzle.style.top = `${e.clientY - pieceOutPuzzle.getBoundingClientRect().height / 2 - ticket1.getBoundingClientRect().top}px`
+            pieceOutPuzzle.style.zIndex = 1000
             
         })
         window.addEventListener('pointerup', () => {
 
             pieceOutPuzzle.style.cursor = "grab"
             draggable = false
+            pieceOutPuzzle.style.zIndex = 0
         })
         pieceOutPuzzle.addEventListener('pointermove', (e) => {
             pieceOutPuzzle.style.cursor = "grab"
@@ -354,11 +356,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     AllBlobes()
     BuildAdaptivePaintingsForPhone()
-    PointerWithPaintings(frame1, painting1, framePainting1)
-    PointerWithPaintings(frame2, painting2, framePainting2)
-    PointerWithPaintings(frame3, painting3, framePainting3)
-    PointerWithPaintings(frame4, painting4, framePainting4)
-    PointerWithPaintings(frame4, painting4, framePainting4)
+    PointerWithPaintings(painting1, framePainting1)
+    PointerWithPaintings(painting2, framePainting2)
+    PointerWithPaintings(painting3, framePainting3)
+    PointerWithPaintings(painting4, framePainting4)
     PointerPuzzle(pieceInPuzzle1, pieceOutPuzzle1)
     PointerPuzzle(pieceInPuzzle2, pieceOutPuzzle2)
     PointerPuzzle(pieceInPuzzle3, pieceOutPuzzle3)
@@ -394,16 +395,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    masks.addEventListener("click", (e) => {
-        countMask++
-        e.target.style.display = "none" 
-        if(countMask == 6){
-            masksInfo.style.display = "flex"
-        }
-    })
-
     ticket2.addEventListener("pointermove", () => {
         ticket2.style.cursor = 'url("assets/coin.svg") 32 32, auto'
+    })
+
+    masks.addEventListener("click", (e) => {
+        if(e.target != masks){
+            countMask++
+            e.target.style.display = "none" 
+        }
+        if(countMask == 6){
+            masksInfo.style.display = "flex"
+            lines.forEach(element => {
+                element.style.opacity = '100%'
+            });
+        }
     })
 
 
