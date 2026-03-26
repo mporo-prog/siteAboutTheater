@@ -1,14 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let maxWidthIpad = 1024
-    let nav = document.querySelector('[data-test="nav"]')
-    let ticketNav = document.querySelector('[data-test="circles-nav"]')
-    let ticketFooter = document.querySelector('[data-test="circles-footer"]')
-    let ticket1Top = document.querySelector('[data-test="circles-ticket1-top"]')
-    let ticket1Bottom = document.querySelector('[data-test="circles-ticket1-bottom"]')
-    let ticket2Top = document.querySelector('[data-test="circles-ticket2-top"]')
-    let ticket2Bottom = document.querySelector('[data-test="circles-ticket2-bottom"]')
-    let timelineTop = document.querySelector('[data-test="circles-timeline-top"]')
-    let timelineBottom = document.querySelector('[data-test="circles-timeline-bottom"]')
+    const circlesTop = document.querySelectorAll('[data-test="circles-top"]')
+    const circlesBottom = document.querySelectorAll('[data-test="circles-bottom"]')
     let framePaintingStrings = document.querySelector('[data-test="frames-painting-strings"]')
     let framesPaintings = document.querySelector('[data-test="frames-paintings"]')
     let frames = document.querySelector('[data-test="frames"]')
@@ -28,94 +21,59 @@ document.addEventListener("DOMContentLoaded", () => {
     let divActingTop = document.querySelector('[data-test="div-acting-top"]')
     let divActingBottom = document.querySelector('[data-test="div-acting-bottom"]')
     let ticket1 = document.querySelector('[data-test="ticket1"]')
-    let pieceInPuzzle1 = document.querySelector('[data-test="pieceInPuzzle1"]')
-    let pieceInPuzzle2 = document.querySelector('[data-test="pieceInPuzzle2"]')
-    let pieceInPuzzle3 = document.querySelector('[data-test="pieceInPuzzle3"]')
-    let pieceInPuzzle4 = document.querySelector('[data-test="pieceInPuzzle4"]')
-    let pieceInPuzzle5 = document.querySelector('[data-test="pieceInPuzzle5"]')
-    let pieceInPuzzle6 = document.querySelector('[data-test="pieceInPuzzle6"]')
-    let pieceInPuzzle7 = document.querySelector('[data-test="pieceInPuzzle7"]')
-    let pieceInPuzzle8 = document.querySelector('[data-test="pieceInPuzzle8"]')
-    let pieceInPuzzle9 = document.querySelector('[data-test="pieceInPuzzle9"]')
-    let pieceInPuzzle10 = document.querySelector('[data-test="pieceInPuzzle10"]')
-    let pieceInPuzzle11 = document.querySelector('[data-test="pieceInPuzzle11"]')
-    let pieceInPuzzle12 = document.querySelector('[data-test="pieceInPuzzle12"]')
-    let pieceInPuzzle13 = document.querySelector('[data-test="pieceInPuzzle13"]')
-    let pieceInPuzzle14 = document.querySelector('[data-test="pieceInPuzzle14"]')
-    let pieceInPuzzle15 = document.querySelector('[data-test="pieceInPuzzle15"]')
-    let pieceOutPuzzle1 = document.querySelector('[data-test="pieceOutPuzzle1"]')
-    let pieceOutPuzzle2 = document.querySelector('[data-test="pieceOutPuzzle2"]')
-    let pieceOutPuzzle3 = document.querySelector('[data-test="pieceOutPuzzle3"]')
-    let pieceOutPuzzle4 = document.querySelector('[data-test="pieceOutPuzzle4"]')
-    let pieceOutPuzzle5 = document.querySelector('[data-test="pieceOutPuzzle5"]')
-    let pieceOutPuzzle6 = document.querySelector('[data-test="pieceOutPuzzle6"]')
-    let pieceOutPuzzle7 = document.querySelector('[data-test="pieceOutPuzzle7"]')
-    let pieceOutPuzzle8 = document.querySelector('[data-test="pieceOutPuzzle8"]')
-    let pieceOutPuzzle9 = document.querySelector('[data-test="pieceOutPuzzle9"]')
-    let pieceOutPuzzle10 = document.querySelector('[data-test="pieceOutPuzzle10"]')
-    let pieceOutPuzzle11 = document.querySelector('[data-test="pieceOutPuzzle11"]')
-    let pieceOutPuzzle12 = document.querySelector('[data-test="pieceOutPuzzle12"]')
-    let pieceOutPuzzle13 = document.querySelector('[data-test="pieceOutPuzzle13"]')
-    let pieceOutPuzzle14 = document.querySelector('[data-test="pieceOutPuzzle14"]')
-    let pieceOutPuzzle15 = document.querySelector('[data-test="pieceOutPuzzle15"]')
+    const piecesInPuzzle = document.querySelectorAll('[data-test="pieceInPuzzle"]')
+    const piecesOutPuzzle = document.querySelectorAll('[data-test="pieceOutPuzzle"]')
+    const systems = document.querySelectorAll('[data-test="system"]')
     let ticket2 = document.querySelector('[data-test="ticket2"]')
     let lottery = document.querySelector('[data-test="lottery"]');
     let coin = document.querySelector('[data-test="coin"]')
-
     let masksInfo = document.querySelector('[data-test="masks-info"]')
     let masks = document.querySelector('[data-test="masks"]')
-
     const lines = document.querySelectorAll('[data-test="line"]')
-
-
     let countMask = 0
-
-
     let draggable = false
-    let count = 0
+    let countPainting = 0
     let countPieces = 0
     let dynamicWeight;
-
-    
-
-
-
-
-    function BuildAdaptivePaintingsForPhone(){
+    function BuildAdaptivePaintingsForPhone() {
         while (framePaintingStrings.firstChild) {
             framePaintingStrings.removeChild(framePaintingStrings.firstChild);
         }
-
-        if(window.innerWidth <= maxWidthIpad){
+        if (window.innerWidth <= maxWidthIpad) {
             div1 = document.createElement("div")
             div2 = document.createElement("div")
-            div3 = document.createElement("div")
-            div4 = document.createElement("div")
-            div3.dataset.test = "div3"
-            div4.dataset.test = "div4"
             div1.className = "adaptivePhonePaintings"
             div2.className = "adaptivePhonePaintings"
-            div3.className = "adaptivePhonePaintings"
-            div4.className = "adaptivePhonePaintings"
             div1.appendChild(framePaintingWithoutColor1)
             div1.appendChild(framePaintingWithoutColor2)
             div2.appendChild(framePaintingWithoutColor3)
             div2.appendChild(framePaintingWithoutColor4)
-            div3.appendChild(painting3)
-            div3.appendChild(painting2)
-            div4.appendChild(painting4)
-            div4.appendChild(painting1)
             framePaintingStrings.appendChild(div1)
             framePaintingStrings.appendChild(div2)
-            framePaintingStrings.appendChild(div3)
-            framePaintingStrings.appendChild(div4)
+            if (painting3.style.display != "none" || painting2.style.display != "none") {
+                div3 = document.createElement("div")
+                div3.dataset.test = "div3"
+                div3.className = "adaptivePhonePaintings"
+                div3.appendChild(painting3)
+                div3.appendChild(painting2)
+                framePaintingStrings.appendChild(div3)
+            }
+            if (painting4.style.display != "none" || painting1.style.display != "none") {
+                div4 = document.createElement("div")
+                div4.dataset.test = "div4"
+                div4.className = "adaptivePhonePaintings"
+                div4.appendChild(painting4)
+                div4.appendChild(painting1)
+                framePaintingStrings.appendChild(div4)
+            }
+
             framePaintingStrings.appendChild(divActing)
             divActing.appendChild(divActingTop)
             divActing.appendChild(divActingBottom)
             CreateBlob(divActingTop)
             CreateBlob(divActingBottom)
         }
-        else{
+        else {
             frames.className = "frames"
             framesPaintings.className = "frames"
             frames.appendChild(framePaintingWithoutColor1)
@@ -133,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
             divActing.appendChild(divActingBottom)
         }
     }
-
     function CreateBlob(ticket) {
         let blobWidth = window.innerWidth * 0.04
         let paddings = parseInt(window.getComputedStyle(ticket).getPropertyValue("padding-left")) * 2;
@@ -144,128 +101,95 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         ticket.innerHTML = html;
     }
-
     function AllBlobes() {
-        CreateBlob(ticketNav)
-        CreateBlob(ticketFooter)
-        CreateBlob(ticket1Top)
-        CreateBlob(ticket1Bottom)
-        CreateBlob(ticket2Top)
-        CreateBlob(ticket2Bottom)
-        CreateBlob(timelineTop)
-        CreateBlob(timelineBottom)
-    }
 
-
-    function TouchParent(painting, framePainting) {
-        let parentYTop = Math.floor((framePainting.getBoundingClientRect().top + framePainting.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
-        let parentYBottom = Math.floor((framePainting.getBoundingClientRect().top + framePainting.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
-        let parentXLeft = Math.floor((framePainting.getBoundingClientRect().left + framePainting.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
-        let parentXRight = Math.floor((framePainting.getBoundingClientRect().left + framePainting.getBoundingClientRect().right) / 2 + window.innerWidth * 0.02)
-        let childY = Math.floor((painting.getBoundingClientRect().top + painting.getBoundingClientRect().bottom) / 2)
-        let childX = Math.floor((painting.getBoundingClientRect().left + painting.getBoundingClientRect().right) / 2)
-
-        if ((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)) {
-            painting.style.display = 'none'
-            framePainting.style.zIndex = 100
-            count++
-            CheckPaintings()
+        circlesTop.forEach(element => {
+            CreateBlob(element)
+        });
+        circlesBottom.forEach(element => {
+            CreateBlob(element)
+        });
+        if (divActing.style.display == "flex") {
+            CreateBlob(divActingTop)
+            CreateBlob(divActingBottom)
         }
     }
-
-    function TouchParentPuzzle(pieceInPuzzle, pieceOutPuzzle) {
-        let parentYTop = Math.floor((pieceInPuzzle.getBoundingClientRect().top + pieceInPuzzle.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
-        let parentYBottom = Math.floor((pieceInPuzzle.getBoundingClientRect().top + pieceInPuzzle.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
-        let parentXLeft = Math.floor((pieceInPuzzle.getBoundingClientRect().left + pieceInPuzzle.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
-        let parentXRight = Math.floor((pieceInPuzzle.getBoundingClientRect().left + pieceInPuzzle.getBoundingClientRect().right) / 2 + window.innerWidth * 0.02)
-        let childY = Math.floor((pieceOutPuzzle.getBoundingClientRect().top + pieceOutPuzzle.getBoundingClientRect().bottom) / 2)
-        let childX = Math.floor((pieceOutPuzzle.getBoundingClientRect().left + pieceOutPuzzle.getBoundingClientRect().right) / 2)
-
+    function TouchParent(child, parent) {
+        let parentYTop = Math.floor((parent.getBoundingClientRect().top + parent.getBoundingClientRect().bottom) / 2 - window.innerWidth * 0.02)
+        let parentYBottom = Math.floor((parent.getBoundingClientRect().top + parent.getBoundingClientRect().bottom) / 2 + window.innerWidth * 0.02)
+        let parentXLeft = Math.floor((parent.getBoundingClientRect().left + parent.getBoundingClientRect().right) / 2 - window.innerWidth * 0.02)
+        let parentXRight = Math.floor((parent.getBoundingClientRect().left + parent.getBoundingClientRect().right) / 2 + window.innerWidth * 0.02)
+        let childY = Math.floor((child.getBoundingClientRect().top + child.getBoundingClientRect().bottom) / 2)
+        let childX = Math.floor((child.getBoundingClientRect().left + child.getBoundingClientRect().right) / 2)
         if ((childX > parentXLeft && childX < parentXRight) && (childY > parentYTop && childY < parentYBottom)) {
-            pieceOutPuzzle.style.display = 'none'
-            pieceInPuzzle.style.zIndex = 100
-            countPieces++
-            CheckPuzzle()
+            child.style.display = 'none'
+            parent.style.zIndex = 100
+
+            if (child.className == "img-painting") {
+                countPainting++
+                CheckPaintings()
+            }
+            else if (child.className == "pieces") {
+                countPieces++
+                CheckPuzzle()
+            }
         }
     }
-
-    function PointerWithPaintings(painting, framePainting) {
-        painting.addEventListener('pointerdown', (e) => {
-            painting.style.cursor = "grabbing"
-            painting.style.position = 'absolute'
-            draggable = true
-
-            painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - framesPaintings.getBoundingClientRect().left}px`
-
-            if(window.innerWidth <= maxWidthIpad){
-                painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framePaintingStrings.getBoundingClientRect().top}px`
-            }
-            else{
-                painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
-            }
-        })
+    function MovePainting(child, parent, e) {
+        child.style.left = `${e.clientX - child.getBoundingClientRect().width / 2 - parent.getBoundingClientRect().left}px`
+        if (window.innerWidth <= maxWidthIpad) {
+            child.style.top = `${e.clientY - child.getBoundingClientRect().height / 2 - framePaintingStrings.getBoundingClientRect().top}px`
+        }
+        else {
+            child.style.top = `${e.clientY - child.getBoundingClientRect().height / 2 - parent.getBoundingClientRect().top}px`
+        }
+    }
+    function MovePuzzle(child, parent, e) {
+        child.style.left = `${e.clientX - child.getBoundingClientRect().width / 2 - parent.getBoundingClientRect().left}px`
+        child.style.top = `${e.clientY - child.getBoundingClientRect().height / 2 - parent.getBoundingClientRect().top}px`
+    }
+    function Pointer(child, parent, childTo) {
         window.addEventListener('pointerup', () => {
-
-            painting.style.cursor = "grab"
+            child.style.cursor = "grab"
             draggable = false
+            child.style.zIndex = 1
         })
-        painting.addEventListener('pointermove', (e) => {
-            painting.style.cursor = "grab"
-            TouchParent(painting, framePainting)
+        child.addEventListener('pointerdown', (e) => {
+            child.style.cursor = "grabbing"
+            child.style.position = 'absolute'
+            draggable = true
+            child.style.zIndex = 1000
+            if (child.className == "pieces") {
+                MovePuzzle(child, parent, e)
+            }
+            else {
+                MovePainting(child, parent, e)
+            }
+
+        })
+        child.addEventListener('pointermove', (e) => {
+            child.style.cursor = "grab"
+            TouchParent(child, childTo)
             if (draggable) {
-                painting.style.cursor = "grabbing"
-
-                painting.style.left = `${e.clientX - painting.getBoundingClientRect().width / 2 - framesPaintings.getBoundingClientRect().left}px`
-
-                if(window.innerWidth <= maxWidthIpad){
-                    painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framePaintingStrings.getBoundingClientRect().top}px`
+                child.style.cursor = "grabbing"
+                if (child.className == "pieces") {
+                    MovePuzzle(child, parent, e)
                 }
-                else{
-                    painting.style.top = `${e.clientY - painting.getBoundingClientRect().height / 2 - framesPaintings.getBoundingClientRect().top}px`
+                else {
+                    MovePainting(child, parent, e)
                 }
             }
         })
     }
-
-
-    function PointerPuzzle(pieceInPuzzle, pieceOutPuzzle) {
-        pieceOutPuzzle.addEventListener('pointerdown', (e) => {
-            pieceOutPuzzle.style.cursor = "grabbing"
-            draggable = true
-
-            
-            pieceOutPuzzle.style.left = `${e.clientX - pieceOutPuzzle.getBoundingClientRect().width / 2}px`
-            pieceOutPuzzle.style.top = `${e.clientY - pieceOutPuzzle.getBoundingClientRect().height / 2 - ticket1.getBoundingClientRect().top}px`
-            pieceOutPuzzle.style.zIndex = 1000
-            
-        })
-        window.addEventListener('pointerup', () => {
-
-            pieceOutPuzzle.style.cursor = "grab"
-            draggable = false
-            pieceOutPuzzle.style.zIndex = 0
-        })
-        pieceOutPuzzle.addEventListener('pointermove', (e) => {
-            pieceOutPuzzle.style.cursor = "grab"
-            TouchParentPuzzle(pieceInPuzzle, pieceOutPuzzle)
-            if (draggable) {
-                pieceOutPuzzle.style.cursor = "grabbing"
-                
-                pieceOutPuzzle.style.left = `${e.clientX - pieceOutPuzzle.getBoundingClientRect().width / 2}px`
-                pieceOutPuzzle.style.top = `${e.clientY - pieceOutPuzzle.getBoundingClientRect().height / 2 - ticket1.getBoundingClientRect().top}px`
-            }
-        })
-    }
-
     function CheckPaintings() {
-        if (count == 4) {
-            if(window.innerWidth <= maxWidthIpad){
+        if (countPainting == 4) {
+            if (window.innerWidth <= maxWidthIpad) {
                 let div3 = document.querySelector('[data-test="div3"]')
                 let div4 = document.querySelector('[data-test="div4"]')
                 div3.style.display = "none"
                 div4.style.display = "none"
             }
-            else{
+            else {
                 framesPaintings.style.display = "none"
             }
             divActing.style.display = "flex"
@@ -275,64 +199,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function CheckPuzzle() {
         if (countPieces == 15) {
-
+            systems.forEach(element => {
+                element.style.display = "inline"
+            });
         }
     }
-
-    window.onload = function() {
+    window.onload = function () {
         const sketch = (canvas) => {
             canvas.setup = () => {
-                let cnv = canvas.createCanvas(lottery.getBoundingClientRect().width, lottery.getBoundingClientRect().height); 
+                let cnv = canvas.createCanvas(lottery.getBoundingClientRect().width, lottery.getBoundingClientRect().height);
                 cnv.parent(lottery);
                 cnv.background(255);
                 cnv.elt.setAttribute('data-test', 'canvas');
-
-
                 cnv.elt.addEventListener('pointerdown', (e) => {
-                draggable = true;
-                updateCoin(e);
-            });
+                    draggable = true;
+                    updateCoin(e);
+                });
                 coin.addEventListener('pointerdown', (e) => {
-                draggable = true;
-                updateCoin(e);
-            });
-
-            coin.addEventListener('pointermove', (e) => {
-                if (draggable) updateCoin(e);
-            });
-            cnv.elt.addEventListener('pointermove', (e) => {
-                if (draggable) updateCoin(e);
-            });
-
-            window.addEventListener('pointerup', () => {
-                draggable = false;
-            });
-
+                    draggable = true;
+                    updateCoin(e);
+                });
+                coin.addEventListener('pointermove', (e) => {
+                    if (draggable) updateCoin(e);
+                });
+                cnv.elt.addEventListener('pointermove', (e) => {
+                    if (draggable) updateCoin(e);
+                });
+                window.addEventListener('pointerup', () => {
+                    draggable = false;
+                });
             }
-
             function updateCoin(e) {
-            const rect = lottery.getBoundingClientRect();
-            
-            const x = e.clientX - rect.left - coin.getBoundingClientRect().width / 2;
-            const y = e.clientY - rect.top - coin.getBoundingClientRect().height / 2;
-
-            coin.style.left = x + 'px';
-            coin.style.top = y + 'px';
-        }
-
+                const rect = lottery.getBoundingClientRect();
+                const x = e.clientX - rect.left - coin.getBoundingClientRect().width / 2;
+                const y = e.clientY - rect.top - coin.getBoundingClientRect().height / 2;
+                coin.style.left = x + 'px';
+                coin.style.top = y + 'px';
+            }
             canvas.windowResized = () => {
                 canvas.resizeCanvas(lottery.getBoundingClientRect().width, lottery.getBoundingClientRect().height);
                 canvas.background(255);
             }
+            if (window.innerWidth <= maxWidthIpad) {
 
-            if(window.innerWidth <= maxWidthIpad){
-
-                dynamicWeight = lottery.getBoundingClientRect().width * 0.04; 
+                dynamicWeight = lottery.getBoundingClientRect().width * 0.04;
             }
-            else{
-                dynamicWeight = lottery.getBoundingClientRect().width * 0.06; 
-        }
-
+            else {
+                dynamicWeight = lottery.getBoundingClientRect().width * 0.06;
+            }
             canvas.draw = () => {
                 if (canvas.mouseIsPressed) {
                     canvas.erase();
@@ -342,80 +256,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
-
         new p5(sketch)
     }
-
-
-
-
-
-
-    
-
-
     AllBlobes()
     BuildAdaptivePaintingsForPhone()
-    PointerWithPaintings(painting1, framePainting1)
-    PointerWithPaintings(painting2, framePainting2)
-    PointerWithPaintings(painting3, framePainting3)
-    PointerWithPaintings(painting4, framePainting4)
-    PointerPuzzle(pieceInPuzzle1, pieceOutPuzzle1)
-    PointerPuzzle(pieceInPuzzle2, pieceOutPuzzle2)
-    PointerPuzzle(pieceInPuzzle3, pieceOutPuzzle3)
-    PointerPuzzle(pieceInPuzzle4, pieceOutPuzzle4)
-    PointerPuzzle(pieceInPuzzle5, pieceOutPuzzle5)
-    PointerPuzzle(pieceInPuzzle6, pieceOutPuzzle6)
-    PointerPuzzle(pieceInPuzzle7, pieceOutPuzzle7)
-    PointerPuzzle(pieceInPuzzle8, pieceOutPuzzle8)
-    PointerPuzzle(pieceInPuzzle9, pieceOutPuzzle9)
-    PointerPuzzle(pieceInPuzzle10, pieceOutPuzzle10)
-    PointerPuzzle(pieceInPuzzle11, pieceOutPuzzle11)
-    PointerPuzzle(pieceInPuzzle12, pieceOutPuzzle12)
-    PointerPuzzle(pieceInPuzzle13, pieceOutPuzzle13)
-    PointerPuzzle(pieceInPuzzle14, pieceOutPuzzle14)
-    PointerPuzzle(pieceInPuzzle15, pieceOutPuzzle15)
-
+    Pointer(painting1, framesPaintings, framePainting1)
+    Pointer(painting2, framesPaintings, framePainting2)
+    Pointer(painting3, framesPaintings, framePainting3)
+    Pointer(painting4, framesPaintings, framePainting4)
+    piecesInPuzzle.forEach((element, index) => {
+        Pointer(piecesOutPuzzle[index], ticket1, element)
+    });
     window.addEventListener("resize", () => {
         AllBlobes()
         BuildAdaptivePaintingsForPhone()
-        if(divActing.style.display == "flex"){
-            CreateBlob(divActingTop)
-            CreateBlob(divActingBottom)
+        if (window.innerWidth <= maxWidthIpad) {
+            dynamicWeight = lottery.getBoundingClientRect().width * 0.08;
         }
-
-
-
-            if(window.innerWidth <= maxWidthIpad){
-
-                dynamicWeight = lottery.getBoundingClientRect().width * 0.04; 
-            }
-            else{
-                dynamicWeight = lottery.getBoundingClientRect().width * 0.06; 
+        else {
+            dynamicWeight = lottery.getBoundingClientRect().width * 0.06;
         }
     })
-
     ticket2.addEventListener("pointermove", () => {
         ticket2.style.cursor = 'url("assets/coin.svg") 32 32, auto'
     })
-
+    masks.addEventListener("pointermove", () => {
+        masks.style.cursor = "pointer"
+    })
     masks.addEventListener("click", (e) => {
-        if(e.target != masks){
+        if (e.target != masks) {
             countMask++
-            e.target.style.display = "none" 
+            e.target.style.display = "none"
         }
-        if(countMask == 6){
+        if (countMask == 6) {
             masksInfo.style.display = "flex"
             lines.forEach(element => {
                 element.style.opacity = '100%'
             });
         }
     })
-
-
-
-
-
-
-
 })

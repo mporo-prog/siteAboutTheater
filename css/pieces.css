@@ -1,0 +1,180 @@
+#circles-bottom {
+    bottom: -2vw;
+}
+
+#circles-top {
+    top: -2vw;
+}
+
+#piece1 {
+    width: 9.9vw;
+}
+
+#piece2 {
+    width: 13.3vw;
+    left: 10.5vw;
+}
+
+#piece3 {
+    width: 7.9vw;
+    left: 24.4vw;
+}
+
+#piece4 {
+    width: 11.6vw;
+    left: 32.9vw;
+}
+
+#piece5 {
+    width: 8.6vw;
+    left: 45vw;
+}
+
+#piece6 {
+    width: 13.8vw;
+    bottom: 13.1vw;
+}
+
+#piece7 {
+    width: 9.4vw;
+    left: 14.4vw;
+    bottom: 13.1vw;
+}
+
+#piece8 {
+    width: 7.9vw;
+    left: 24.4vw;
+    bottom: 13.8vw;
+}
+
+#piece9 {
+    width: 11.6vw;
+    left: 32.9vw;
+    bottom: 11.8vw;
+}
+
+#piece10 {
+    width: 5.6vw;
+    left: 45vw;
+    bottom: 11.8vw;
+}
+
+#piece11 {
+    width: 15.6vw;
+    left: 8.2vw;
+    bottom: 26.2vw;
+}
+
+#piece12 {
+    width: 12.4vw;
+    left: 24.3vw;
+    bottom: 25.5vw;
+}
+
+#piece13 {
+    width: 12.1vw;
+    left: 7.8vw;
+    bottom: 37.7vw;
+}
+
+#piece14 {
+    width: 15.9vw;
+    left: 20.6vw;
+    bottom: 37.5vw;
+}
+
+#piece15 {
+    width: 12.2vw;
+    left: 20.6vw;
+    bottom: 48.7vw;
+}
+
+#pieceOut1 {
+    width: 9.9vw;
+    right: 12%;
+    bottom: 43%;
+}
+
+#pieceOut2 {
+    width: 13.3vw;
+    right: 27%;
+    bottom: 13%;
+}
+
+#pieceOut3 {
+    width: 7.9vw;
+    right: 18%;
+    bottom: 7%;
+}
+
+#pieceOut4 {
+    width: 11.6vw;
+    right: 7%;
+    bottom: 9%;
+}
+
+#pieceOut5 {
+    width: 8.6vw;
+    right: 24%;
+    bottom: 9%;
+}
+
+#pieceOut6 {
+    width: 13.8vw;
+    right: 9%;
+    bottom: 18%;
+}
+
+#pieceOut7 {
+    width: 9.4vw;
+    right: 21%;
+    bottom: 17%;
+}
+
+#pieceOut8 {
+    width: 7.9vw;
+    right: 4%;
+    bottom: 21%;
+}
+
+#pieceOut9 {
+    width: 11.6vw;
+    right: 10%;
+    bottom: 27%;
+}
+
+#pieceOut10 {
+    width: 5.6vw;
+    right: 28%;
+    bottom: 29%;
+}
+
+#pieceOut11 {
+    width: 15.6vw;
+    right: 20%;
+    bottom: 32%;
+}
+
+#pieceOut12 {
+    width: 12.4vw;
+    right: 30%;
+    bottom: 29%;
+}
+
+#pieceOut13 {
+    width: 12.2vw;
+    right: 5%;
+    bottom: 35%;
+}
+
+#pieceOut14 {
+    width: 15.9vw;
+    right: 19%;
+    bottom: 45%;
+}
+
+#pieceOut15 {
+    width: 12.2vw;
+    right: 27%;
+    bottom: 43%;
+}
