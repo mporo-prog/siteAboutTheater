@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const containerSelector = document.querySelector('[data-test="timeline"]');
-    containerSelector.style.touchAction = "pan-down"
     const timeline = Array.from(containerSelector.children);
     if (timeline.length > 0) {
         const swappable = new Draggable.Swappable(timeline, {
